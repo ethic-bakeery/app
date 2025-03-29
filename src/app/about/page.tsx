@@ -92,7 +92,7 @@ export default function AboutPage() {
               <section id="who-we-are" className={`mb-12 ${activeSection === "who-we-are" ? "block" : "hidden"}`}>
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">Who We Are</h2>
                 <p className="text-gray-600 mb-4">
-                  The National Youth Reform Movement is a collective of passionate and forward-thinking Nigerians committed to transforming the nation through unity, activism, and strategic advocacy. We believe that the key to solving Nigeria's challenges—corruption, insecurity, economic instability, and lack of accountability—lies in the power of the people, especially the youth.
+                  The National Youth Reform Movement is a collective of passionate and forward-thinking Nigerians committed to transforming the nation through unity, activism, and strategic advocacy. We believe that the key to solving Nigeria&apos;s challenges—corruption, insecurity, economic instability, and lack of accountability—lies in the power of the people, especially the youth.
                 </p>
               </section>
 
@@ -129,7 +129,7 @@ export default function AboutPage() {
                 <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
                   <h3 className="text-lg font-medium text-gray-800 mb-2">1. National Leadership</h3>
                   <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                    <li>Oversees the movement's vision and strategies.</li>
+                    <li>Oversees the movement&apos;s vision and strategies.</li>
                     <li>Engages with national policymakers, media, and international bodies.</li>
                     <li>Coordinates nationwide events and campaigns.</li>
                   </ul>
@@ -166,7 +166,7 @@ export default function AboutPage() {
                         <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-medium text-gray-800 mb-2">Public Awareness & Education</h3>
+                    <h3 className="text-lg font-medium text-gray-800 mb-2">Public Awareness &amp; Education</h3>
                     <p className="text-gray-600">
                       We organize events, radio programs, and social media campaigns to educate Nigerians on governance, rights, and responsibilities.
                     </p>
@@ -179,7 +179,7 @@ export default function AboutPage() {
                         <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v1h8v-1zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-1a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v1h-3zM4.75 12.094A5.973 5.973 0 004 15v1H1v-1a3 3 0 013.75-2.906z" />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-medium text-gray-800 mb-2">Community Engagement & Mobilization</h3>
+                    <h3 className="text-lg font-medium text-gray-800 mb-2">Community Engagement &amp; Mobilization</h3>
                     <p className="text-gray-600">
                       Our teams in every state and local government area work directly with communities to drive participation in reform efforts.
                     </p>
@@ -192,7 +192,7 @@ export default function AboutPage() {
                         <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-medium text-gray-800 mb-2">Advocacy & Policy Influence</h3>
+                    <h3 className="text-lg font-medium text-gray-800 mb-2">Advocacy &amp; Policy Influence</h3>
                     <p className="text-gray-600">
                       We engage with policymakers, pushing for reforms that prioritize the interests of Nigerians.
                     </p>
@@ -205,7 +205,7 @@ export default function AboutPage() {
                         <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-medium text-gray-800 mb-2">Leadership Training & Development</h3>
+                    <h3 className="text-lg font-medium text-gray-800 mb-2">Leadership Training &amp; Development</h3>
                     <p className="text-gray-600">
                       We mentor and empower young Nigerians to take on leadership roles and drive change at all levels.
                     </p>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
+import Link from "next/link";
 
 const ContactForm = () => {
   const [name, setName] = useState<string>("");
@@ -23,7 +24,7 @@ const ContactForm = () => {
       setName("");
       setEmail("");
       setMessage("");
-      setSubmitStatus({type: "success", message: "Thank you for your message! We'll get back to you soon."});
+      setSubmitStatus({type: "success", message: "Thank you for your message! We&apos;ll get back to you soon."});
     } catch (error) {
       console.error(error);
       setSubmitStatus({type: "error", message: "Failed to submit form. Please try again."});
@@ -44,30 +45,30 @@ const ContactForm = () => {
               </div>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <a
+              <Link
                 href="/"
                 className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
               >
                 Home
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/about"
                 className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
               >
                 About Us
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/policy"
                 className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
               >
                 Policy
-              </a>
-              <a
-                href="contact"
+              </Link>
+              <Link
+                href="/contact"
                 className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -80,7 +81,7 @@ const ContactForm = () => {
             <div className="text-center mb-8">
               <h1 className="text-2xl font-bold text-gray-800">Contact Us</h1>
               <p className="mt-2 text-sm text-gray-600">
-                Have questions or feedback? We'd love to hear from you.
+                Have questions or feedback? We&apos;d love to hear from you.
               </p>
             </div>
 

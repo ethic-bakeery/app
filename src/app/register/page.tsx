@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
 import React, { useState, FormEvent } from "react";
 import { useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
+import Link from "next/link";
 
 interface FormData {
   fullName: string;
@@ -88,30 +89,30 @@ export default function ContactForm() {
               </div>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <a
+              <Link
                 href="/"
                 className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
               >
                 Home
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/about"
                 className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
               >
                 About Us
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/policy"
                 className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
               >
                 Policy
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/contact"
                 className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </div>

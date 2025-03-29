@@ -49,7 +49,7 @@ export default function Home() {
             Welcome to VolunteerHub
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-xl text-gray-500">
-            Join our community and make a difference in people's lives.
+            Join our community and make a difference in people&apos;s lives.
           </p>
           
           {/* Call-to-action buttons */}

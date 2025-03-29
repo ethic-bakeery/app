@@ -11,11 +11,11 @@ export default function PolicyPage() {
     { id: "membership", title: "2. Membership Policy" },
     { id: "communication", title: "3. Communication Guidelines" },
     { id: "decision-making", title: "4. Decision-Making Process" },
-    { id: "security", title: "5. Security & Safety Protocols" },
-    { id: "events", title: "6. Event & Activity Guidelines" },
+    { id: "security", title: "5. Security &amp; Safety Protocols" },
+    { id: "events", title: "6. Event &amp; Activity Guidelines" },
     { id: "financial", title: "7. Financial Management" },
-    { id: "legal", title: "8. Legal & Ethical Standards" },
-    { id: "enforcement", title: "9. Policy Enforcement & Review" },
+    { id: "legal", title: "8. Legal &amp; Ethical Standards" },
+    { id: "enforcement", title: "9. Policy Enforcement &amp; Review" },
   ];
 
   return (
@@ -157,7 +157,7 @@ export default function PolicyPage() {
                   <div className="flex items-center">
                     <div className="flex-shrink-0 text-red-500 mr-3">❌</div>
                     <div className="text-sm text-red-700">
-                      Spreading misinformation or harming the movement's reputation
+                      Spreading misinformation or harming the movement&apos;s reputation
                     </div>
                   </div>
                 </div>
@@ -216,7 +216,7 @@ export default function PolicyPage() {
                   <li>Nationwide campaigns must be approved by a majority vote</li>
                 </ul>
                 
-                <h3 className="text-xl font-medium text-gray-700 mb-3">4.2 State & Local-Level Decisions</h3>
+                <h3 className="text-xl font-medium text-gray-700 mb-3">4.2 State &amp; Local-Level Decisions</h3>
                 <ul className="list-disc pl-5 space-y-2 text-gray-600">
                   <li>State teams handle regional activities within national guidelines</li>
                   <li>Local teams must submit event proposals to state teams</li>
@@ -225,7 +225,7 @@ export default function PolicyPage() {
 
               {/* Security & Safety Protocols Section */}
               <section id="security" className={`mb-12 ${activeSection === "security" ? "block" : "hidden"}`}>
-                <h2 className="text-2xl font-semibold text-gray-800 mb-4">5. Security & Safety Protocols</h2>
+                <h2 className="text-2xl font-semibold text-gray-800 mb-4">5. Security &amp; Safety Protocols</h2>
                 
                 <h3 className="text-xl font-medium text-gray-700 mb-3">5.1 Protection of Members</h3>
                 <ul className="list-disc pl-5 mb-6 space-y-2 text-gray-600">
@@ -248,7 +248,7 @@ export default function PolicyPage() {
 
               {/* Event & Activity Guidelines Section */}
               <section id="events" className={`mb-12 ${activeSection === "events" ? "block" : "hidden"}`}>
-                <h2 className="text-2xl font-semibold text-gray-800 mb-4">6. Event & Activity Guidelines</h2>
+                <h2 className="text-2xl font-semibold text-gray-800 mb-4">6. Event &amp; Activity Guidelines</h2>
                 
                 <h3 className="text-xl font-medium text-gray-700 mb-3">6.1 Local-Level Events</h3>
                 <div className="space-y-3 mb-6">
@@ -291,13 +291,13 @@ export default function PolicyPage() {
               <section id="financial" className={`mb-12 ${activeSection === "financial" ? "block" : "hidden"}`}>
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">7. Financial Management</h2>
                 
-                <h3 className="text-xl font-medium text-gray-700 mb-3">7.1 Fundraising & Donations</h3>
+                <h3 className="text-xl font-medium text-gray-700 mb-3">7.1 Fundraising &amp; Donations</h3>
                 <ul className="list-disc pl-5 mb-6 space-y-2 text-gray-600">
                   <li>Donations will be accepted only through official accounts</li>
                   <li>All funding sources must be transparent and legal</li>
                 </ul>
                 
-                <h3 className="text-xl font-medium text-gray-700 mb-3">7.2 Budgeting & Spending</h3>
+                <h3 className="text-xl font-medium text-gray-700 mb-3">7.2 Budgeting &amp; Spending</h3>
                 <ul className="list-disc pl-5 mb-6 space-y-2 text-gray-600">
                   <li>State teams must submit monthly expense reports</li>
                   <li>Local teams must get approval for any large expenses</li>
@@ -312,7 +312,7 @@ export default function PolicyPage() {
 
               {/* Legal & Ethical Standards Section */}
               <section id="legal" className={`mb-12 ${activeSection === "legal" ? "block" : "hidden"}`}>
-                <h2 className="text-2xl font-semibold text-gray-800 mb-4">8. Legal & Ethical Standards</h2>
+                <h2 className="text-2xl font-semibold text-gray-800 mb-4">8. Legal &amp; Ethical Standards</h2>
                 
                 <h3 className="text-xl font-medium text-gray-700 mb-3">8.1 Compliance with Laws</h3>
                 <ul className="list-disc pl-5 mb-6 space-y-2 text-gray-600">
@@ -339,7 +339,7 @@ export default function PolicyPage() {
 
               {/* Policy Enforcement & Review Section */}
               <section id="enforcement" className={`mb-12 ${activeSection === "enforcement" ? "block" : "hidden"}`}>
-                <h2 className="text-2xl font-semibold text-gray-800 mb-4">9. Policy Enforcement & Review</h2>
+                <h2 className="text-2xl font-semibold text-gray-800 mb-4">9. Policy Enforcement &amp; Review</h2>
                 
                 <h3 className="text-xl font-medium text-gray-700 mb-3">9.1 Reporting Violations</h3>
                 <ul className="list-disc pl-5 mb-6 space-y-2 text-gray-600">
