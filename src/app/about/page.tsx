@@ -62,8 +62,8 @@ export default function AboutPage() {
           {/* Sidebar Navigation */}
           <div className="lg:w-1/4 pr-8 mb-8 lg:mb-0">
             <div className="bg-white p-6 rounded-lg shadow-md sticky top-6">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">National Youth Reform Movement</h2>
-              <h3 className="text-md font-semibold text-gray-800 mb-6">About Our Organization</h3>
+              <h2 className="text-lg font-bold text-gray-900 mb-4">Naija NextGen Alliance</h2>
+              <h3 className="text-md font-semibold text-gray-800 mb-6">About NNGA</h3>
               
               <nav className="space-y-1">
                 {sections.map((section) => (
@@ -86,13 +86,13 @@ export default function AboutPage() {
           {/* Main Content */}
           <div className="lg:w-3/4">
             <div className="bg-white p-8 rounded-xl shadow-md">
-              <h1 className="text-3xl font-bold text-gray-900 mb-6">About National Youth Reform Movement</h1>
+              <h1 className="text-3xl font-bold text-gray-900 mb-6">About Naija NextGen Alliance</h1>
               
               {/* Who We Are Section */}
               <section id="who-we-are" className={`mb-12 ${activeSection === "who-we-are" ? "block" : "hidden"}`}>
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">Who We Are</h2>
                 <p className="text-gray-600 mb-4">
-                  The National Youth Reform Movement is a collective of passionate and forward-thinking Nigerians committed to transforming the nation through unity, activism, and strategic advocacy. We believe that the key to solving Nigeria&apos;s challenges—corruption, insecurity, economic instability, and lack of accountability—lies in the power of the people, especially the youth.
+                  The Naija NextGen Alliance is a collective of passionate and forward-thinking Nigerians committed to transforming the nation through unity, activism, and strategic advocacy. We believe that the key to solving Nigeria&apos;s challenges—corruption, insecurity, economic instability, and lack of accountability—lies in the power of the people, especially the youth.
                 </p>
               </section>
 
@@ -100,7 +100,7 @@ export default function AboutPage() {
               <section id="mission" className={`mb-12 ${activeSection === "mission" ? "block" : "hidden"}`}>
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">Our Mission</h2>
                 <p className="text-gray-600 mb-4">
-                  Our mission is to unite Nigerians across ethnic, religious, and regional lines to create a national movement that demands transparency, justice, and sustainable development. We strive to empower individuals to take an active role in governance, ensuring that leaders remain accountable to the people.
+                  Our mission is to unite Nigerians across ethnic, religious, and regional lines to create a national community that demands transparency, justice, and sustainable development. We strive to empower individuals to take an active role in governance, ensuring that leaders remain accountable to the people.
                 </p>
               </section>
 
@@ -129,7 +129,7 @@ export default function AboutPage() {
                 <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
                   <h3 className="text-lg font-medium text-gray-800 mb-2">1. National Leadership</h3>
                   <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                    <li>Oversees the movement&apos;s vision and strategies.</li>
+                    <li>Oversees the Community&apos;s vision and strategies.</li>
                     <li>Engages with national policymakers, media, and international bodies.</li>
                     <li>Coordinates nationwide events and campaigns.</li>
                   </ul>
@@ -138,7 +138,7 @@ export default function AboutPage() {
                 <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
                   <h3 className="text-lg font-medium text-gray-800 mb-2">2. State Leadership</h3>
                   <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                    <li>Represents the movement at the state level.</li>
+                    <li>Represents the Community at the state level.</li>
                     <li>Works with local government teams to implement grassroots initiatives.</li>
                     <li>Handles state-wide media engagements and outreach programs.</li>
                   </ul>
@@ -222,7 +222,7 @@ export default function AboutPage() {
                   <div className="bg-indigo-50 p-6 rounded-lg">
                     <h3 className="text-lg font-medium text-indigo-800 mb-3">Join Us</h3>
                     <p className="text-gray-700 mb-4">
-                      Sign up to become a member and take an active role in the movement.
+                      Sign up to become a member and take an active role in NNGA.
                     </p>
                     <Link
                       href="/register"
@@ -254,18 +254,7 @@ export default function AboutPage() {
                     </Link>
                   </div>
                   
-                  {/* Donate */}
-                  <div className="bg-purple-50 p-6 rounded-lg">
-                    <h3 className="text-lg font-medium text-purple-800 mb-3">Donate</h3>
-                    <p className="text-gray-700 mb-4">
-                      Support our programs and activities through financial contributions.
-                    </p>
-                    <button
-                      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700"
-                    >
-                      Donate Now
-                    </button>
-                  </div>
+                
                 </div>
               </section>
 
@@ -276,12 +265,12 @@ export default function AboutPage() {
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <div>
                     <h3 className="text-lg font-medium text-gray-700 mb-3">Email</h3>
-                    <p className="text-gray-600">info@youthreform.org</p>
+                    <p className="text-gray-600">info@nnga.ng(not active)</p>
                   </div>
                   
                   <div>
                     <h3 className="text-lg font-medium text-gray-700 mb-3">Website</h3>
-                    <p className="text-gray-600">www.youthreform.org</p>
+                    <p className="text-gray-600">www.nnga.ng(not active)</p>
                   </div>
                   
                   <div className="sm:col-span-2">
