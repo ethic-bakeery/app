@@ -56,7 +56,7 @@ export default function TermsAndConditionsPage() {
             <div className="text-center mb-8">
               <h1 className="text-3xl font-bold text-gray-900">Terms and Conditions</h1>
               <p className="mt-2 text-lg text-gray-600">
-                Governing your participation in the National Youth Reform Movement
+                Governing your participation in Naija NextGen Alliance
               </p>
             </div>
 
@@ -65,20 +65,20 @@ export default function TermsAndConditionsPage() {
               <div className="mb-8">
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">1. Introduction</h2>
                 <p className="text-gray-700">
-                  Welcome to NNGA. By registering as a member, you agree to abide by these Terms and Conditions, which govern your participation and conduct within the Movement.
+                  Welcome to NNGA. By registering as a member, you agree to abide by these Terms and Conditions, which govern your participation and conduct within the Community.
                 </p>
               </div>
 
               {/* Section 2 */}
               <div className="mb-8">
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">2. Eligibility</h2>
-                <p className="text-gray-700 mb-3">To become a member of the Movement, you must:</p>
+                <p className="text-gray-700 mb-3">To become a member of the Community, you must:</p>
                 <ul className="list-disc pl-5 space-y-2 text-gray-700">
                   <li>Be a Nigerian citizen</li>
                   <li>Be at least 18 years old</li>
                   <li>Have completed at least primary or secondary education</li>
                   <li>Be committed to bringing positive change to the country without personal gain</li>
-                  <li>Read, understand, and adhere to the Movement's policies, guidelines, and procedures</li>
+                  <li>Read, understand, and adhere to the Community&apos;s policies, guidelines, and procedures</li>
                 </ul>
               </div>
 
@@ -89,9 +89,9 @@ export default function TermsAndConditionsPage() {
                 <ul className="list-disc pl-5 space-y-2 text-gray-700">
                   <li>Promote unity and national development</li>
                   <li>Refrain from spreading false information, hate speech, or engaging in divisive activities</li>
-                  <li>Uphold the Movement's values, including honesty, accountability, and respect for all members</li>
+                  <li>Uphold the Community&apos;s values, including honesty, accountability, and respect for all members</li>
                   <li>Participate actively in initiatives, events, and activities</li>
-                  <li>Report any misconduct or activities that go against the Movement's principles</li>
+                  <li>Report any misconduct or activities that go against the Community&apos;s principles</li>
                 </ul>
               </div>
 
@@ -102,9 +102,9 @@ export default function TermsAndConditionsPage() {
                 <ul className="list-disc pl-5 space-y-2 text-gray-700">
                   <li>Engage in any form of corruption, bribery, or unethical conduct</li>
                   <li>Promote or partake in illegal activities, including drug use and violence</li>
-                  <li>Use the Movement for personal or political gain</li>
+                  <li>Use the Community for personal or political gain</li>
                   <li>Disrespect fellow members based on ethnicity, religion, or political affiliations</li>
-                  <li>Disclose confidential information related to the Movement without authorization</li>
+                  <li>Disclose confidential information related to the Community without authorization</li>
                 </ul>
               </div>
 
@@ -112,12 +112,12 @@ export default function TermsAndConditionsPage() {
               <div className="mb-8">
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">5. Membership Termination</h2>
                 <p className="text-gray-700 mb-3">
-                  The Movement reserves the right to suspend or terminate membership if a member:
+                  The Community reserves the right to suspend or terminate membership if a member:
                 </p>
                 <ul className="list-disc pl-5 space-y-2 text-gray-700">
                   <li>Violates any of these Terms and Conditions</li>
-                  <li>Engages in actions that harm the integrity of the Movement</li>
-                  <li>Fails to comply with national laws and Movement policies</li>
+                  <li>Engages in actions that harm the integrity of the Community</li>
+                  <li>Fails to comply with national laws and Community policies</li>
                 </ul>
               </div>
 
@@ -126,8 +126,8 @@ export default function TermsAndConditionsPage() {
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">6. Privacy and Data Protection</h2>
                 <ul className="list-disc pl-5 space-y-2 text-gray-700">
                   <li>Member information will be collected and stored securely</li>
-                  <li>Personal data will only be used for Movement-related activities</li>
-                  <li>The Movement will not share members' personal data with third parties without consent</li>
+                  <li>Personal data will only be used for Community-related activities</li>
+                  <li>The Community will not share members&apos; personal data with third parties without consent</li>
                 </ul>
               </div>
 
@@ -135,7 +135,7 @@ export default function TermsAndConditionsPage() {
               <div className="mb-8">
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">7. Amendments</h2>
                 <p className="text-gray-700">
-                  The Movement may update these Terms and Conditions as necessary. Members will be notified of any changes, and continued participation will signify acceptance of the revised terms.
+                  The Community may update these Terms and Conditions as necessary. Members will be notified of any changes, and continued participation will signify acceptance of the revised terms.
                 </p>
               </div>
 
@@ -143,7 +143,7 @@ export default function TermsAndConditionsPage() {
               <div className="bg-green-50 p-6 rounded-lg">
                 <h2 className="text-xl font-semibold text-green-800 mb-3">8. Acceptance of Terms</h2>
                 <p className="text-gray-700">
-                  By joining the Movement, you acknowledge that you have read, understood, and agreed to these Terms and Conditions.
+                  By joining the Community, you acknowledge that you have read, understood, and agreed to these Terms and Conditions.
                 </p>
                 <p className="text-gray-700 mt-2">
                   For any inquiries, please <Link href="/contact" className="text-indigo-600 hover:underline">contact us</Link>.

@@ -133,9 +133,9 @@ export default function Home() {
             </p>
             <p className="font-semibold mt-4">
               This is not about politics.<br />
-              It's not about tribe.<br />
-              It's not about religion.<br />
-              It's about our future.
+              It&apos;s not about tribe.<br />
+              It&apos;s not about religion.<br />
+              It&apos;s about our future.
             </p>
             <p className="mt-4">
               We are building a nationwide, grassroots community of courageous, visionary Nigerians who are ready to reform this country from the ground up starting with awareness, unity, and collective action.
@@ -190,7 +190,7 @@ export default function Home() {
 
           <div className="bg-blue-50 p-4 rounded-md">
             <p className="text-blue-800 mb-3">
-              If you're interested, please read our <Link href="/policy" className="font-semibold underline">Policy</Link>, <Link href="/terms" className="font-semibold underline">Terms and Conditions</Link>, and <Link href="/criteria" className="font-semibold underline">Acceptance Criteria</Link>.
+              If you&apos;re interested, please read our <Link href="/policy" className="font-semibold underline">Policy</Link>, <Link href="/terms" className="font-semibold underline">Terms and Conditions</Link>, and <Link href="/criteria" className="font-semibold underline">Acceptance Criteria</Link>.
             </p>
             <p className="text-blue-800">
               If you agree to the terms and meet the criteria, you can <Link href="/register" className="font-semibold underline">register here</Link> to get started.
@@ -198,7 +198,6 @@ export default function Home() {
           </div>
         </div>
 
-       
         {/* Features Section */}
         <div className="mt-12 px-2">
           <h2 className="text-xl font-bold text-gray-900 text-center mb-6 sm:text-2xl">

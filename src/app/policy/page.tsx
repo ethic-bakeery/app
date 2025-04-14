@@ -64,7 +64,7 @@ export default function PolicyPage() {
           {/* Sidebar Navigation */}
           <div className="lg:w-1/4 pr-8 mb-8 lg:mb-0">
             <div className="bg-white p-6 rounded-lg shadow-md sticky top-6">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">National Youth Reform Movement</h2>
+              <h2 className="text-lg font-bold text-gray-900 mb-4">Naija NextGen Alliance</h2>
               <h3 className="text-md font-semibold text-gray-800 mb-4">Policies, Guidelines, and Procedures</h3>
               <p className="text-sm text-gray-500 mb-6">Version: 1.0<br />Last Updated: 10/02/2025</p>
               
@@ -89,13 +89,13 @@ export default function PolicyPage() {
           {/* Main Content */}
           <div className="lg:w-3/4">
             <div className="bg-white p-8 rounded-xl shadow-md">
-              <h1 className="text-3xl font-bold text-gray-900 mb-6">National Youth Reform Movement Policies</h1>
+              <h1 className="text-3xl font-bold text-gray-900 mb-6">Naija NextGen Alliance Policies</h1>
               
               {/* Introduction Section */}
               <section id="introduction" className={`mb-12 ${activeSection === "introduction" ? "block" : "hidden"}`}>
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">1. Introduction</h2>
                 <p className="text-gray-600 mb-4">
-                  The National Youth Reform Movement is committed to bringing unity and political awareness to Nigerians through structured activism. This document outlines the policies, guidelines, and procedures that govern our operations at the national, state, and local government levels.
+                  The Naija NextGen Alliance is committed to bringing unity and political awareness to Nigerians through structured activism. This document outlines the policies, guidelines, and procedures that govern our operations at the national, state, and local government levels.
                 </p>
               </section>
 
@@ -107,7 +107,7 @@ export default function PolicyPage() {
                 <ul className="list-disc pl-5 mb-6 space-y-2 text-gray-600">
                   <li>Must be 18 years or older</li>
                   <li>Must be committed to peaceful activism and national unity</li>
-                  <li>Should be willing to participate in movement activities</li>
+                  <li>Should be willing to participate in Community activities</li>
                 </ul>
                 
                 <h3 className="text-xl font-medium text-gray-700 mb-3">2.2 Registration Process</h3>
@@ -157,7 +157,7 @@ export default function PolicyPage() {
                   <div className="flex items-center">
                     <div className="flex-shrink-0 text-red-500 mr-3">❌</div>
                     <div className="text-sm text-red-700">
-                      Spreading misinformation or harming the movement&apos;s reputation
+                      Spreading misinformation or harming the Community&apos;s reputation
                     </div>
                   </div>
                 </div>
@@ -184,7 +184,7 @@ export default function PolicyPage() {
                 
                 <h3 className="text-xl font-medium text-gray-700 mb-3">3.2 Public Communication</h3>
                 <ul className="list-disc pl-5 mb-6 space-y-2 text-gray-600">
-                  <li>Only designated spokespersons can speak for the movement</li>
+                  <li>Only designated spokespersons can speak for the Community</li>
                   <li>Press releases and interviews must be approved by the national team</li>
                   <li>Social media content must be fact-checked before posting</li>
                 </ul>
@@ -316,7 +316,7 @@ export default function PolicyPage() {
                 
                 <h3 className="text-xl font-medium text-gray-700 mb-3">8.1 Compliance with Laws</h3>
                 <ul className="list-disc pl-5 mb-6 space-y-2 text-gray-600">
-                  <li>The movement must operate within Nigerian law</li>
+                  <li>The Community must operate within Nigerian law</li>
                   <li>No engagement in illegal protests or unlawful activities</li>
                 </ul>
                 

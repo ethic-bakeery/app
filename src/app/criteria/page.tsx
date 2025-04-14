@@ -56,7 +56,7 @@ export default function AcceptanceCriteriaPage() {
             <div className="text-center mb-8">
               <h1 className="text-3xl font-bold text-gray-900">Membership Acceptance Criteria</h1>
               <p className="mt-2 text-lg text-gray-600">
-                Requirements for joining the National Youth Reform Movement
+                Requirements for joining the Naija NextGen Alliance
               </p>
             </div>
 
@@ -64,7 +64,7 @@ export default function AcceptanceCriteriaPage() {
               <div className="bg-blue-50 p-6 rounded-lg mb-8">
                 <h2 className="text-xl font-semibold text-blue-800 mb-4">Introduction</h2>
                 <p className="text-gray-700">
-                  To ensure the integrity, commitment, and effectiveness of our movement, all members must meet the following criteria before joining:
+                  To ensure the integrity, commitment, and effectiveness of our community, all members must meet the following criteria before joining:
                 </p>
               </div>
 
@@ -88,10 +88,10 @@ export default function AcceptanceCriteriaPage() {
 
               {/* Section 3 */}
               <div className="mb-8">
-                <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">3. Commitment to the Movement's Values</h2>
+                <h2 className="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">3. Commitment to the Community&apos;s Values</h2>
                 <ul className="list-disc pl-5 space-y-2 text-gray-700">
                   <li>Must have a genuine passion for positive change and national development</li>
-                  <li>Must be joining selflessly, with no intent for personal gain, but rather for the betterment of Nigeria's future</li>
+                  <li>Must be joining selflessly, with no intent for personal gain, but rather for the betterment of Nigeria&apos;s future</li>
                   <li>Must demonstrate respect for diversity, religious tolerance, and non-discrimination in all interactions</li>
                   <li>Must have no record of criminal activities related to corruption, fraud, or violent offenses</li>
                 </ul>
@@ -103,7 +103,7 @@ export default function AcceptanceCriteriaPage() {
                 <ul className="list-disc pl-5 space-y-2 text-gray-700">
                   <li>Must read, understand, and strictly adhere to all organizational policies and guidelines</li>
                   <li>Must agree to and comply with our <Link href="/terms" className="text-indigo-600 hover:underline">Terms & Conditions</Link>, <Link href="/policy" className="text-indigo-600 hover:underline">Code of Conduct</Link>, and operational procedures</li>
-                  <li>Must be willing to attend meetings, participate in activities, and contribute actively to the movement's mission</li>
+                  <li>Must be willing to attend meetings, participate in activities, and contribute actively to the Community&apos;s mission</li>
                   <li>Must respect hierarchy, leadership structure, and collaborative decision-making within the organization</li>
                 </ul>
               </div>
@@ -122,10 +122,10 @@ export default function AcceptanceCriteriaPage() {
               <div className="bg-red-50 p-6 rounded-lg">
                 <h2 className="text-xl font-semibold text-red-800 mb-3">Consequences of Non-Compliance</h2>
                 <p className="text-gray-700">
-                  Failure to meet or uphold these criteria may lead to disqualification, suspension, or removal from the movement.
+                  Failure to meet or uphold these criteria may lead to disqualification, suspension, or removal from the Community.
                 </p>
                 <p className="text-gray-700 mt-2 font-medium">
-                  By joining the movement, you acknowledge and agree to abide by these criteria.
+                  By joining the Commnunity, you acknowledge and agree to abide by these criteria.
                 </p>
               </div>
 
