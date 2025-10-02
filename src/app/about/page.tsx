@@ -65,12 +65,11 @@ export default function AboutPage() {
             Building a united and just Nigeria through civic engagement, youth mobilization, and rights advocacy
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-2">
-  <span className="bg-blue-500/20 text-blue-200 px-3 py-1 rounded-full text-sm">National Unity</span>
-  <span className="bg-green-500/20 text-green-200 px-3 py-1 rounded-full text-sm">Rights Advocacy</span>
-  <span className="bg-purple-500/20 text-purple-200 px-3 py-1 rounded-full text-sm">Youth Empowerment</span>
-  <span className="bg-orange-500/20 text-orange-200 px-3 py-1 rounded-full text-sm">Grassroots Movement</span>
-</div>
-
+            <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">National Unity</span>
+            <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Rights Advocacy</span>
+            <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Youth Empowerment</span>
+            <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Grassroots Movement</span>
+          </div>
         </div>
       </div>
 
@@ -153,7 +152,7 @@ export default function AboutPage() {
                     <div className="bg-blue-50 rounded-xl p-6 mb-6">
                       <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Identity</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        Nigerian Unity and Rights Advocacy (NURA) is a collective of passionate and forward-thinking Nigerians committed to transforming the nation through unity, activism, and strategic advocacy. We believe that the key to solving Nigeria's challenges—corruption, insecurity, economic instability, and lack of accountability—lies in the power of the people, especially the youth.
+                        Nigerian Unity and Rights Advocacy (NURA) is a collective of passionate and forward-thinking Nigerians committed to transforming the nation through unity, activism, and strategic advocacy. We believe that the key to solving Nigeria&apos;s challenges—corruption, insecurity, economic instability, and lack of accountability—lies in the power of the people, especially the youth.
                       </p>
                     </div>
 
@@ -393,7 +392,7 @@ export default function AboutPage() {
                     <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-xl text-white p-6">
                       <h3 className="text-xl font-bold mb-3">Join Our Movement</h3>
                       <p className="text-blue-100">
-                        There are many ways to contribute to NURA's mission of building a better Nigeria. Choose the path that best fits your skills, interests, and availability.
+                        There are many ways to contribute to NURA&apos;s mission of building a better Nigeria. Choose the path that best fits your skills, interests, and availability.
                       </p>
                     </div>
 
@@ -466,7 +465,7 @@ export default function AboutPage() {
                     <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-xl p-6">
                       <h3 className="text-xl font-semibold text-gray-900 mb-4">Connect With Us</h3>
                       <p className="text-gray-700">
-                        We're always excited to hear from fellow Nigerians who share our vision for a better nation. Reach out to us through any of the following channels.
+                        We&apos;re always excited to hear from fellow Nigerians who share our vision for a better nation. Reach out to us through any of the following channels.
                       </p>
                     </div>
 
