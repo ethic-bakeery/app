@@ -7,12 +7,14 @@ export const submitContact = mutation({
     name: v.string(),
     email: v.string(),
     message: v.string(),
+    subject: v.optional(v.string()), // Add this line
   },
   handler: async (ctx, args) => {
     const contactId = await ctx.db.insert("contactMe", {
       name: args.name,
       email: args.email,
       message: args.message,
+      subject: args.subject || "General Inquiry", // Add this line
       createdAt: Date.now(),
       isRead: false,
     });

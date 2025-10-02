@@ -6,357 +6,369 @@ import Link from "next/link";
 export default function StructurePage() {
   const [activeTab, setActiveTab] = useState<"local" | "state" | "national">("local");
 
+  const structureData = {
+    local: {
+      title: "Local Government Teams",
+      subtitle: "Grassroots level operations across 774 LGAs",
+      color: "green",
+      icon: "🏘️",
+      members: 6966,
+      teamSize: 9,
+      responsibilities: [
+        "Organizing local events and awareness campaigns",
+        "Engaging traditional rulers and religious leaders",
+        "Reporting weekly updates to State team",
+        "Community mobilization at ward level",
+        "Local media and social media engagement"
+      ],
+      teamStructure: [
+        { count: 1, role: "Lead Coordinator" },
+        { count: 3, role: "Community Organizers" },
+        { count: 2, role: "Communication Officers" },
+        { count: 1, role: "Legal Advisor" },
+        { count: 2, role: "Security & Strategy Officers" }
+      ],
+      description: "The foundation of NURA's operations, ensuring community-level impact and direct citizen engagement."
+    },
+    state: {
+      title: "State Teams",
+      subtitle: "Regional coordination across 37 states (including FCT)",
+      color: "blue",
+      icon: "🏛️",
+      members: 518,
+      teamSize: 14,
+      responsibilities: [
+        "Overseeing Local Government teams",
+        "Engaging with state media (radio, TV)",
+        "Managing state-level social media",
+        "Organizing state events and rallies",
+        "Communicating feedback to National team"
+      ],
+      teamStructure: [
+        { count: 1, role: "State Lead Coordinator" },
+        { count: 3, role: "Assistant Coordinators" },
+        { count: 3, role: "Media & Public Relations Officers" },
+        { count: 2, role: "Legal & Policy Advisors" },
+        { count: 3, role: "Event & Mobilization Officers" },
+        { count: 2, role: "Security & Risk Officers" }
+      ],
+      description: "Bridging the gap between national strategy and local implementation across all states."
+    },
+    national: {
+      title: "National Executive Council",
+      subtitle: "Central leadership and strategic direction",
+      color: "purple",
+      icon: "🇳🇬",
+      members: 25,
+      teamSize: 25,
+      responsibilities: [
+        "High-level decision making and policy setting",
+        "National media and government engagement",
+        "Organizing national events and campaigns",
+        "Handling legal and security challenges",
+        "International representation and partnerships"
+      ],
+      teamStructure: [
+        { count: 1, role: "National Chairperson" },
+        { count: 3, role: "Vice-Chairpersons" },
+        { count: 4, role: "Public Relations Officers" },
+        { count: 3, role: "Legal & Compliance Officers" },
+        { count: 5, role: "Mobilization & Strategy Officers" },
+        { count: 3, role: "Security & Risk Advisors" },
+        { count: 6, role: "State Liaison Officers" }
+      ],
+      description: "The central leadership body providing strategic direction and national coordination."
+    }
+  };
+
+  const currentData = structureData[activeTab];
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Navigation Bar - Consistent with other pages */}
-      <nav className="bg-white shadow-sm">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+      {/* Navigation Bar - Consistent with Homepage */}
+      <nav className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex">
+          <div className="flex justify-between h-20">
+            <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
-                <span className="text-xl font-bold text-gray-800">NNGA</span>
+                <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                  NURA
+                </Link>
+                <span className="ml-2 text-xs text-gray-500 hidden sm:block">
+                  Nigerian Unity and Rights Advocacy
+                </span>
               </div>
             </div>
-            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <Link
-                href="/"
-                className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-              >
-                Home
-              </Link>
-              <Link
-                href="/policy"
-                className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-              >
-                Policy
-              </Link>
-              <Link
-                href="/about"
-                className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-              >
-                About Us
-              </Link>
-              <Link
-                href="/contact"
-                className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-              >
-                Contact Us
-              </Link>
-              <Link
-                href="/roadmap"
-                className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-              >
-                Roadmap
-              </Link>
-              <Link
-                href="/structure"
-                className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-              >
-                Structure
-              </Link>
+            
+            <div className="hidden lg:flex items-center space-x-8">
+              <Link href="/" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Home</Link>
+              <Link href="/about" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">About Us</Link>
+              <Link href="/constitution" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Constitution</Link>
+              <Link href="/structure" className="text-green-600 font-semibold border-b-2 border-green-600 pb-1">Structure</Link>
+              <Link href="/contact" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Contact</Link>
+              <Link href="/join" className="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors duration-200">Join Us</Link>
+            </div>
+
+            <div className="lg:hidden flex items-center">
+              <button className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-green-600 hover:bg-gray-100">
+                <span className="sr-only">Open main menu</span>
+                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
       </nav>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Organizational Structure</h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Our efficient three-tier structure designed for nationwide impact
+      {/* Header Section */}
+      <div className="relative bg-gradient-to-r from-green-700 to-blue-800 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl font-bold mb-4">Organizational Structure</h1>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            Our efficient three-tier structure designed for nationwide impact and grassroots engagement
           </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-2">
+  <span className="bg-blue-500/20 text-blue-200 px-3 py-1 rounded-full text-sm">7,509 Total Members</span>
+  <span className="bg-green-500/20 text-green-200 px-3 py-1 rounded-full text-sm">774 Local Governments</span>
+  <span className="bg-purple-500/20 text-purple-200 px-3 py-1 rounded-full text-sm">37 States Coverage</span>
+</div>
+
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Structure Overview Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {Object.entries(structureData).map(([key, data]) => (
+            <button
+              key={key}
+              onClick={() => setActiveTab(key as "local" | "state" | "national")}
+              className={`text-left p-6 rounded-xl border-2 transition-all duration-300 ${
+                activeTab === key
+                  ? `border-${data.color}-500 bg-${data.color}-50 shadow-lg transform scale-105`
+                  : "border-gray-200 bg-white hover:shadow-md hover:border-gray-300"
+              }`}
+            >
+              <div className="flex items-start justify-between mb-4">
+                <span className="text-3xl">{data.icon}</span>
+                <span className={`px-3 py-1 rounded-full text-sm font-semibold bg-${data.color}-100 text-${data.color}-800`}>
+                  {data.members.toLocaleString()} members
+                </span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{data.title}</h3>
+              <p className="text-gray-600 text-sm">{data.subtitle}</p>
+              <div className="mt-4 flex items-center text-sm text-gray-500">
+                <span className={`w-3 h-3 rounded-full bg-${data.color}-500 mr-2`}></span>
+                {data.teamSize} members per unit
+              </div>
+            </button>
+          ))}
         </div>
 
-        {/* Structure Navigation */}
-        <div className="flex border-b border-gray-200 mb-8">
-          <button
-            onClick={() => setActiveTab("local")}
-            className={`py-4 px-6 font-medium text-sm border-b-2 ${
-              activeTab === "local"
-                ? "border-indigo-500 text-indigo-600"
-                : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-            }`}
-          >
-            Local Government (774)
-          </button>
-          <button
-            onClick={() => setActiveTab("state")}
-            className={`py-4 px-6 font-medium text-sm border-b-2 ${
-              activeTab === "state"
-                ? "border-indigo-500 text-indigo-600"
-                : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-            }`}
-          >
-            State Level (37)
-          </button>
-          <button
-            onClick={() => setActiveTab("national")}
-            className={`py-4 px-6 font-medium text-sm border-b-2 ${
-              activeTab === "national"
-                ? "border-indigo-500 text-indigo-600"
-                : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-            }`}
-          >
-            National Level
-          </button>
-        </div>
+        {/* Main Content Area */}
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
+          {/* Tab Header */}
+          <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white p-8">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <span className="text-4xl">{currentData.icon}</span>
+                <div>
+                  <h2 className="text-2xl font-bold">{currentData.title}</h2>
+                  <p className="text-blue-100">{currentData.subtitle}</p>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-3xl font-bold">{currentData.members.toLocaleString()}</div>
+                <div className="text-blue-100 text-sm">Total Members</div>
+              </div>
+            </div>
+          </div>
 
-        {/* Mobile Dropdown Navigation */}
-        <div className="sm:hidden mb-6">
-          <select
-            onChange={(e) => setActiveTab(e.target.value as "local" | "state" | "national")}
-            className="block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
-            value={activeTab}
-          >
-            <option value="local">Local Government (774)</option>
-            <option value="state">State Level (37)</option>
-            <option value="national">National Level</option>
-          </select>
-        </div>
-
-        {/* Content Sections */}
-        <div className="bg-white rounded-xl shadow-md overflow-hidden">
           <div className="p-8">
-            {/* Local Government Section */}
-            <div className={activeTab === "local" ? "block" : "hidden"}>
-              <div className="border-l-4 border-green-500 pl-4 mb-6">
-                <h2 className="text-2xl font-bold text-gray-800">Local Government Teams</h2>
-                <p className="text-gray-600">Grassroots level operations across 774 LGAs</p>
+            {/* Description */}
+            <div className="bg-gray-50 rounded-lg p-6 mb-8">
+              <p className="text-gray-700 text-lg leading-relaxed">{currentData.description}</p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Responsibilities */}
+              <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                  <svg className="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Key Responsibilities
+                </h3>
+                <ul className="space-y-3">
+                  {currentData.responsibilities.map((responsibility, index) => (
+                    <li key={index} className="flex items-start">
+                      <span className="flex-shrink-0 w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></span>
+                      <span className="text-gray-700">{responsibility}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-green-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-medium text-green-800 mb-4">Responsibilities</h3>
-                  <ul className="list-disc pl-5 space-y-2 text-gray-700">
-                    <li>Organizing local events and awareness campaigns</li>
-                    <li>Engaging traditional rulers and religious leaders</li>
-                    <li>Reporting weekly updates to State team</li>
-                    <li>Community mobilization at ward level</li>
-                    <li>Local media and social media engagement</li>
-                  </ul>
+              {/* Team Structure */}
+              <div className="bg-white border border-gray-200 rounded-xl p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                  <svg className="w-5 h-5 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+                  </svg>
+                  Team Composition ({currentData.teamSize} members)
+                </h3>
+                <div className="space-y-4">
+                  {currentData.teamStructure.map((member, index) => (
+                    <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <span className="text-gray-700 font-medium">{member.role}</span>
+                      <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
+                        {member.count} {member.count === 1 ? 'member' : 'members'}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-
-                <div className="bg-blue-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-medium text-blue-800 mb-4">Team Structure (9 per LGA)</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">1</span>
-                      <span className="text-gray-700">Lead Coordinator</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">3</span>
-                      <span className="text-gray-700">Community Organizers</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">2</span>
-                      <span className="text-gray-700">Communication Officers</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">1</span>
-                      <span className="text-gray-700">Legal Advisor</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">2</span>
-                      <span className="text-gray-700">Security & Strategy</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-medium text-gray-800 mb-2">Total Members Nationwide</h3>
-                <p className="text-3xl font-bold text-gray-900">6,966 <span className="text-lg text-gray-600">members across 774 LGAs</span></p>
               </div>
             </div>
 
-            {/* State Level Section */}
-            <div className={activeTab === "state" ? "block" : "hidden"}>
-              <div className="border-l-4 border-yellow-500 pl-4 mb-6">
-                <h2 className="text-2xl font-bold text-gray-800">State Teams</h2>
-                <p className="text-gray-600">Regional coordination across 37 states (including FCT)</p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-yellow-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-medium text-yellow-800 mb-4">Responsibilities</h3>
-                  <ul className="list-disc pl-5 space-y-2 text-gray-700">
-                    <li>Overseeing Local Government teams</li>
-                    <li>Engaging with state media (radio, TV)</li>
-                    <li>Managing state-level social media</li>
-                    <li>Organizing state events and rallies</li>
-                    <li>Communicating feedback to National team</li>
-                  </ul>
-                </div>
-
-                <div className="bg-purple-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-medium text-purple-800 mb-4">Team Structure (14 per state)</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <span className="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">1</span>
-                      <span className="text-gray-700">State Lead Coordinator</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">3</span>
-                      <span className="text-gray-700">Assistant Coordinators</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">3</span>
-                      <span className="text-gray-700">Media & Public Relations</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">2</span>
-                      <span className="text-gray-700">Legal & Policy Advisors</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">3</span>
-                      <span className="text-gray-700">Event & Mobilization Officers</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">2</span>
-                      <span className="text-gray-700">Security & Risk Team</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-medium text-gray-800 mb-2">Total Members Nationwide</h3>
-                <p className="text-3xl font-bold text-gray-900">518 <span className="text-lg text-gray-600">members across 37 states</span></p>
-              </div>
-            </div>
-
-            {/* National Level Section */}
-            <div className={activeTab === "national" ? "block" : "hidden"}>
-              <div className="border-l-4 border-red-500 pl-4 mb-6">
-                <h2 className="text-2xl font-bold text-gray-800">National Team</h2>
-                <p className="text-gray-600">Central leadership and strategic direction</p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-red-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-medium text-red-800 mb-4">Responsibilities</h3>
-                  <ul className="list-disc pl-5 space-y-2 text-gray-700">
-                    <li>High-level decision making</li>
-                    <li>National media and government engagement</li>
-                    <li>Setting policies and strategies</li>
-                    <li>Organizing national events</li>
-                    <li>Handling legal and security challenges</li>
-                    <li>International representation</li>
-                  </ul>
-                </div>
-
-                <div className="bg-indigo-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-medium text-indigo-800 mb-4">Team Structure (25 total)</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <span className="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">1</span>
-                      <span className="text-gray-700">National Chairperson</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">3</span>
-                      <span className="text-gray-700">Vice-Chairpersons</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">4</span>
-                      <span className="text-gray-700">Public Relations</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">3</span>
-                      <span className="text-gray-700">Legal & Compliance</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">5</span>
-                      <span className="text-gray-700">Mobilization & Strategy</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">3</span>
-                      <span className="text-gray-700">Security & Risk Advisors</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">6</span>
-                      <span className="text-gray-700">State Liaison Officers</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-medium text-gray-800 mb-2">Total Members Nationwide</h3>
-                <p className="text-3xl font-bold text-gray-900">25 <span className="text-lg text-gray-600">central leadership members</span></p>
+            {/* Role Details */}
+            <div className="mt-8 bg-gray-50 rounded-xl p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Key Officer Roles</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {activeTab === "local" && (
+                  <>
+                    <div className="bg-white p-4 rounded-lg border border-gray-200">
+                      <h4 className="font-semibold text-green-700 mb-2">Lead Coordinator</h4>
+                      <p className="text-sm text-gray-600">Heads the LGA chapter, directs local initiatives, and coordinates with state teams.</p>
+                    </div>
+                    <div className="bg-white p-4 rounded-lg border border-gray-200">
+                      <h4 className="font-semibold text-green-700 mb-2">Community Organizers</h4>
+                      <p className="text-sm text-gray-600">Mobilize residents, facilitate local participation, and conduct outreach.</p>
+                    </div>
+                  </>
+                )}
+                {activeTab === "state" && (
+                  <>
+                    <div className="bg-white p-4 rounded-lg border border-gray-200">
+                      <h4 className="font-semibold text-blue-700 mb-2">State Lead Coordinator</h4>
+                      <p className="text-sm text-gray-600">Leads the state chapter, executes national directives, and manages state programs.</p>
+                    </div>
+                    <div className="bg-white p-4 rounded-lg border border-gray-200">
+                      <h4 className="font-semibold text-blue-700 mb-2">Media & PR Officers</h4>
+                      <p className="text-sm text-gray-600">Handle all public messaging, media relations, and visibility campaigns in the state.</p>
+                    </div>
+                  </>
+                )}
+                {activeTab === "national" && (
+                  <>
+                    <div className="bg-white p-4 rounded-lg border border-gray-200">
+                      <h4 className="font-semibold text-purple-700 mb-2">National Chairperson</h4>
+                      <p className="text-sm text-gray-600">Provides overall leadership, chairs NEC meetings, represents NURA at national and international levels.</p>
+                    </div>
+                    <div className="bg-white p-4 rounded-lg border border-gray-200">
+                      <h4 className="font-semibold text-purple-700 mb-2">Legal & Compliance Officers</h4>
+                      <p className="text-sm text-gray-600">Provide legal advice, draft policies, ensure compliance with Nigerian law and internal regulations.</p>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
         </div>
 
-        {/* Summary Section */}
-        <div className="mt-12 bg-white rounded-xl shadow-md overflow-hidden">
+        {/* Nationwide Summary */}
+        <div className="mt-12 bg-gradient-to-r from-green-600 to-blue-700 rounded-2xl shadow-xl text-white overflow-hidden">
           <div className="p-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-              Nationwide Structure Summary
-            </h2>
+            <h2 className="text-2xl font-bold mb-2 text-center">Nationwide Structure Summary</h2>
+            <p className="text-blue-100 text-center mb-8">Comprehensive coverage across all levels of governance</p>
             
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Category
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Team Size Per Unit
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Total Members Nationwide
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  <tr>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      Local Government
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      9 per LGA
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      6,966
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      State Level
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      14 per state
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      518
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      National Level
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      25 total
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      25
-                    </td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      <strong>Total</strong>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      &nbsp;
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
-                      7,509 Members
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="bg-white bg-opacity-10 rounded-xl p-6 text-center backdrop-blur-sm">
+                <div className="text-3xl font-bold mb-2">774</div>
+                <div className="text-blue-100 text-sm">Local Government Areas</div>
+              </div>
+              <div className="bg-white bg-opacity-10 rounded-xl p-6 text-center backdrop-blur-sm">
+                <div className="text-3xl font-bold mb-2">37</div>
+                <div className="text-blue-100 text-sm">States & FCT</div>
+              </div>
+              <div className="bg-white bg-opacity-10 rounded-xl p-6 text-center backdrop-blur-sm">
+                <div className="text-3xl font-bold mb-2">3</div>
+                <div className="text-blue-100 text-sm">Tier Structure</div>
+              </div>
+              <div className="bg-white bg-opacity-20 rounded-xl p-6 text-center backdrop-blur-sm">
+                <div className="text-3xl font-bold mb-2">7,509</div>
+                <div className="text-blue-100 text-sm">Total Members</div>
+              </div>
+            </div>
+
+            <div className="mt-8 bg-white bg-opacity-10 rounded-xl p-6 backdrop-blur-sm">
+              <div className="overflow-x-auto">
+                <table className="w-full text-white">
+                  <thead>
+                    <tr className="border-b border-white border-opacity-20">
+                      <th className="text-left pb-4 font-semibold">Level</th>
+                      <th className="text-left pb-4 font-semibold">Units</th>
+                      <th className="text-left pb-4 font-semibold">Team Size</th>
+                      <th className="text-left pb-4 font-semibold">Total Members</th>
+                      <th className="text-left pb-4 font-semibold">Coverage</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white divide-opacity-20">
+                    <tr>
+                      <td className="py-4 font-medium">Local Government</td>
+                      <td className="py-4">774 LGAs</td>
+                      <td className="py-4">9 per LGA</td>
+                      <td className="py-4">6,966</td>
+                      <td className="py-4">Grassroots</td>
+                    </tr>
+                    <tr>
+                      <td className="py-4 font-medium">State Level</td>
+                      <td className="py-4">37 States</td>
+                      <td className="py-4">14 per state</td>
+                      <td className="py-4">518</td>
+                      <td className="py-4">Regional</td>
+                    </tr>
+                    <tr>
+                      <td className="py-4 font-medium">National Level</td>
+                      <td className="py-4">1 Council</td>
+                      <td className="py-4">25 members</td>
+                      <td className="py-4">25</td>
+                      <td className="py-4">National</td>
+                    </tr>
+                    <tr className="border-t border-white border-opacity-30">
+                      <td className="py-4 font-bold">Total</td>
+                      <td className="py-4">-</td>
+                      <td className="py-4">-</td>
+                      <td className="py-4 font-bold text-lg">7,509</td>
+                      <td className="py-4">Nationwide</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="mt-12 text-center">
+          <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Join Our Structure?</h3>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+              Become part of NURA's nationwide network and contribute to building a better Nigeria through our structured organizational framework.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/join"
+                className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200"
+              >
+                Join NURA Today
+              </Link>
+              <Link
+                href="/constitution"
+                className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors duration-200"
+              >
+                View Full Constitution
+              </Link>
             </div>
           </div>
         </div>
