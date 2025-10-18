@@ -58,8 +58,17 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState<{ text: string; type: "success" | "error" } | null>(null);
   const [currentStep, setCurrentStep] = useState(1);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const registerUser = useMutation(api.register.registerUser);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -145,22 +154,77 @@ export default function ContactForm() {
               </div>
             </div>
             
+            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
               <Link href="/" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Home</Link>
               <Link href="/about" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">About Us</Link>
-              <Link href="/policy" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">policy</Link>
+              <Link href="/policy" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Policy</Link>
               <Link href="/structure" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Structure</Link>
               <Link href="/contact" className="text-green-600 font-semibold border-b-2 border-green-600 pb-1">Join Us</Link>
             </div>
 
+            {/* Mobile menu button */}
             <div className="lg:hidden flex items-center">
-              <button className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-green-600 hover:bg-gray-100">
+              <button
+                type="button"
+                onClick={toggleMenu}
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-green-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
+                aria-controls="mobile-menu"
+                aria-expanded={isMenuOpen}
+              >
                 <span className="sr-only">Open main menu</span>
-                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+                {isMenuOpen ? (
+                  <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
               </button>
             </div>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className={`lg:hidden ${isMenuOpen ? 'block' : 'hidden'}`} id="mobile-menu">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
+            <Link
+              href="/"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
+            >
+              About Us
+            </Link>
+            <Link
+              href="/policy"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
+            >
+              Policy
+            </Link>
+            <Link
+              href="/structure"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
+            >
+              Structure
+            </Link>
+            <Link
+              href="/contact"
+              className="bg-green-50 text-green-600 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
+            >
+              Join Us
+            </Link>
           </div>
         </div>
       </nav>
@@ -173,11 +237,10 @@ export default function ContactForm() {
             Become part of the nationwide network driving positive change in Nigeria
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-2">
-  <span className="bg-blue-500/20 text-blue-200 px-3 py-1 rounded-full text-sm">Make a Difference</span>
-  <span className="bg-green-500/20 text-green-200 px-3 py-1 rounded-full text-sm">Build Your Community</span>
-  <span className="bg-orange-500/20 text-orange-200 px-3 py-1 rounded-full text-sm">Create Lasting Impact</span>
-</div>
-
+            <span className="bg-blue-500/20 text-blue-200 px-3 py-1 rounded-full text-sm">Make a Difference</span>
+            <span className="bg-green-500/20 text-green-200 px-3 py-1 rounded-full text-sm">Build Your Community</span>
+            <span className="bg-orange-500/20 text-orange-200 px-3 py-1 rounded-full text-sm">Create Lasting Impact</span>
+          </div>
         </div>
       </div>
 
@@ -257,254 +320,254 @@ export default function ContactForm() {
               </div>
             )}
             <form onSubmit={handleSubmit}>
-  {/* Step 1: Personal Information */}
-  {currentStep === 1 && (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="md:col-span-2">
-          <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
-            Full Name *
-          </label>
-          <div className="relative">
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              value={formData.fullName}
-              onChange={handleChange}
-              required
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
-              placeholder="Enter your full name"
-            />
-            <svg className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-          </div>
-        </div>
-        
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-            Email Address *
-          </label>
-          <div className="relative">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
-              placeholder="your.email@example.com"
-            />
-            <svg className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-          </div>
-        </div>
-        
-        <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-            Phone Number *
-          </label>
-          <div className="relative">
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
-              placeholder="+234 800 000 0000"
-            />
-            <svg className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-          </div>
-        </div>
-      </div>
+              {/* Step 1: Personal Information */}
+              {currentStep === 1 && (
+                <div className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="md:col-span-2">
+                      <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+                        Full Name *
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="text"
+                          id="fullName"
+                          name="fullName"
+                          value={formData.fullName}
+                          onChange={handleChange}
+                          required
+                          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
+                          placeholder="Enter your full name"
+                        />
+                        <svg className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                        Email Address *
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
+                          placeholder="your.email@example.com"
+                        />
+                        <svg className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                        Phone Number *
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          required
+                          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
+                          placeholder="+234 800 000 0000"
+                        />
+                        <svg className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
 
-      <div className="bg-blue-50 rounded-lg p-4">
-        <div className="flex items-start">
-          <svg className="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-          </svg>
-          <p className="text-sm text-blue-700">
-            Your information is secure and will only be used for NURA organizational purposes. 
-            By proceeding, you agree to our <Link href="/terms" className="font-semibold underline">Terms and Conditions</Link>.
-          </p>
-        </div>
-      </div>
-    </div>
-  )}
+                  <div className="bg-blue-50 rounded-lg p-4">
+                    <div className="flex items-start">
+                      <svg className="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                      </svg>
+                      <p className="text-sm text-blue-700">
+                        Your information is secure and will only be used for NURA organizational purposes. 
+                        By proceeding, you agree to our <Link href="/terms" className="font-semibold underline">Terms and Conditions</Link>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
 
-  {/* Step 2: Location Information */}
-  {currentStep === 2 && (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-2">
-            State of Residence *
-          </label>
-          <select
-            id="state"
-            name="state"
-            value={formData.state}
-            onChange={handleChange}
-            required
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white"
-          >
-            <option value="" className="text-gray-500">Select your state</option>
-            {nigerianStates.map(state => (
-              <option key={state} value={state} className="text-gray-900">{state}</option>
-            ))}
-          </select>
-        </div>
-        
-        <div>
-          <label htmlFor="localGovernment" className="block text-sm font-medium text-gray-700 mb-2">
-            Local Government Area *
-          </label>
-          <input
-            type="text"
-            id="localGovernment"
-            name="localGovernment"
-            value={formData.localGovernment}
-            onChange={handleChange}
-            required
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
-            placeholder="Enter your LGA"
-          />
-        </div>
-      </div>
+              {/* Step 2: Location Information */}
+              {currentStep === 2 && (
+                <div className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-2">
+                        State of Residence *
+                      </label>
+                      <select
+                        id="state"
+                        name="state"
+                        value={formData.state}
+                        onChange={handleChange}
+                        required
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white"
+                      >
+                        <option value="" className="text-gray-500">Select your state</option>
+                        {nigerianStates.map(state => (
+                          <option key={state} value={state} className="text-gray-900">{state}</option>
+                        ))}
+                      </select>
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="localGovernment" className="block text-sm font-medium text-gray-700 mb-2">
+                        Local Government Area *
+                      </label>
+                      <input
+                        type="text"
+                        id="localGovernment"
+                        name="localGovernment"
+                        value={formData.localGovernment}
+                        onChange={handleChange}
+                        required
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
+                        placeholder="Enter your LGA"
+                      />
+                    </div>
+                  </div>
 
-      <div>
-        <label htmlFor="rolePreference" className="block text-sm font-medium text-gray-700 mb-2">
-          Preferred Role (Optional)
-        </label>
-        <select
-          id="rolePreference"
-          name="rolePreference"
-          value={formData.rolePreference}
-          onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white"
-        >
-          <option value="" className="text-gray-500">Select preferred role</option>
-          {rolePreferences.map(role => (
-            <option key={role} value={role} className="text-gray-900">{role}</option>
-          ))}
-        </select>
-      </div>
-    </div>
-  )}
+                  <div>
+                    <label htmlFor="rolePreference" className="block text-sm font-medium text-gray-700 mb-2">
+                      Preferred Role (Optional)
+                    </label>
+                    <select
+                      id="rolePreference"
+                      name="rolePreference"
+                      value={formData.rolePreference}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white"
+                    >
+                      <option value="" className="text-gray-500">Select preferred role</option>
+                      {rolePreferences.map(role => (
+                        <option key={role} value={role} className="text-gray-900">{role}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              )}
 
-  {/* Step 3: Skills & Experience */}
-  {currentStep === 3 && (
-    <div className="space-y-6">
-      <div>
-        <label htmlFor="skills" className="block text-sm font-medium text-gray-700 mb-2">
-          Skills & Expertise *
-        </label>
-        <textarea
-          id="skills"
-          name="skills"
-          rows={3}
-          value={formData.skills}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
-          placeholder="List your relevant skills, expertise, or areas of interest (e.g., Community organizing, Public speaking, Legal advisory, Social media management, Event planning...)"
-        />
-      </div>
-      
-      <div>
-        <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-2">
-          Previous Experience *
-        </label>
-        <textarea
-          id="experience"
-          name="experience"
-          rows={4}
-          value={formData.experience}
-          onChange={handleChange}
-          required
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
-          placeholder="Describe your previous volunteer experience, work experience, or any relevant activities that demonstrate your commitment to community service and positive change..."
-        />
-      </div>
+              {/* Step 3: Skills & Experience */}
+              {currentStep === 3 && (
+                <div className="space-y-6">
+                  <div>
+                    <label htmlFor="skills" className="block text-sm font-medium text-gray-700 mb-2">
+                      Skills & Expertise *
+                    </label>
+                    <textarea
+                      id="skills"
+                      name="skills"
+                      rows={3}
+                      value={formData.skills}
+                      onChange={handleChange}
+                      required
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
+                      placeholder="List your relevant skills, expertise, or areas of interest (e.g., Community organizing, Public speaking, Legal advisory, Social media management, Event planning...)"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-2">
+                      Previous Experience *
+                    </label>
+                    <textarea
+                      id="experience"
+                      name="experience"
+                      rows={4}
+                      value={formData.experience}
+                      onChange={handleChange}
+                      required
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
+                      placeholder="Describe your previous volunteer experience, work experience, or any relevant activities that demonstrate your commitment to community service and positive change..."
+                    />
+                  </div>
 
-      <div>
-        <label htmlFor="interests" className="block text-sm font-medium text-gray-700 mb-2">
-          Areas of Interest (Optional)
-        </label>
-        <textarea
-          id="interests"
-          name="interests"
-          rows={2}
-          value={formData.interests}
-          onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
-          placeholder="Specific areas you're passionate about (e.g., Youth empowerment, Education reform, Human rights advocacy, Political awareness...)"
-        />
-      </div>
-    </div>
-  )}
+                  <div>
+                    <label htmlFor="interests" className="block text-sm font-medium text-gray-700 mb-2">
+                      Areas of Interest (Optional)
+                    </label>
+                    <textarea
+                      id="interests"
+                      name="interests"
+                      rows={2}
+                      value={formData.interests}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
+                      placeholder="Specific areas you're passionate about (e.g., Youth empowerment, Education reform, Human rights advocacy, Political awareness...)"
+                    />
+                  </div>
+                </div>
+              )}
 
-  {/* Navigation Buttons */}
-  <div className="flex justify-between mt-8 pt-6 border-t border-gray-200">
-    <div>
-      {currentStep > 1 && (
-        <button
-          type="button"
-          onClick={prevStep}
-          className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors duration-200"
-        >
-          Previous
-        </button>
-      )}
-    </div>
-    
-    <div>
-      {currentStep < 3 ? (
-        <button
-          type="button"
-          onClick={nextStep}
-          disabled={!isStepValid()}
-          className={`px-6 py-3 rounded-lg font-semibold transition-colors duration-200 ${
-            isStepValid() 
-              ? 'bg-green-600 text-white hover:bg-green-700' 
-              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-          }`}
-        >
-          Continue
-        </button>
-      ) : (
-        <button
-          type="submit"
-          disabled={isSubmitting || !isStepValid()}
-          className={`px-8 py-3 rounded-lg font-semibold transition-colors duration-200 ${
-            isSubmitting 
-              ? 'bg-green-400 text-white cursor-not-allowed' 
-              : isStepValid()
-              ? 'bg-green-600 text-white hover:bg-green-700'
-              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-          }`}
-        >
-          {isSubmitting ? (
-            <span className="flex items-center">
-              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-              Processing Registration...
-            </span>
-          ) : 'Complete Registration'}
-        </button>
-      )}
-    </div>
-  </div>
-</form>
+              {/* Navigation Buttons */}
+              <div className="flex justify-between mt-8 pt-6 border-t border-gray-200">
+                <div>
+                  {currentStep > 1 && (
+                    <button
+                      type="button"
+                      onClick={prevStep}
+                      className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors duration-200"
+                    >
+                      Previous
+                    </button>
+                  )}
+                </div>
+                
+                <div>
+                  {currentStep < 3 ? (
+                    <button
+                      type="button"
+                      onClick={nextStep}
+                      disabled={!isStepValid()}
+                      className={`px-6 py-3 rounded-lg font-semibold transition-colors duration-200 ${
+                        isStepValid() 
+                          ? 'bg-green-600 text-white hover:bg-green-700' 
+                          : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      }`}
+                    >
+                      Continue
+                    </button>
+                  ) : (
+                    <button
+                      type="submit"
+                      disabled={isSubmitting || !isStepValid()}
+                      className={`px-8 py-3 rounded-lg font-semibold transition-colors duration-200 ${
+                        isSubmitting 
+                          ? 'bg-green-400 text-white cursor-not-allowed' 
+                          : isStepValid()
+                          ? 'bg-green-600 text-white hover:bg-green-700'
+                          : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      }`}
+                    >
+                      {isSubmitting ? (
+                        <span className="flex items-center">
+                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Processing Registration...
+                        </span>
+                      ) : 'Complete Registration'}
+                    </button>
+                  )}
+                </div>
+              </div>
+            </form>
           </div>
         </div>
 
