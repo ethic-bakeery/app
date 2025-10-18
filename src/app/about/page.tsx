@@ -38,7 +38,7 @@ export default function AboutPage() {
             <div className="hidden lg:flex items-center space-x-8">
               <Link href="/" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Home</Link>
               <Link href="/about" className="text-green-600 font-semibold border-b-2 border-green-600 pb-1">About Us</Link>
-              <Link href="/constitution" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Constitution</Link>
+              <Link href="/checklist" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Constitution</Link>
               <Link href="/structure" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Structure</Link>
               <Link href="/policy" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Policies</Link>
               <Link href="/contact" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Contact</Link>
@@ -65,14 +65,13 @@ export default function AboutPage() {
             Building a united and just Nigeria through civic engagement, youth mobilization, and rights advocacy
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-2">
-            <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">National Unity</span>
-            <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Rights Advocacy</span>
-            <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Youth Empowerment</span>
-            <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Grassroots Movement</span>
+            <span className="bg-blue-500/20 text-blue-200 px-3 py-1 rounded-full text-sm">National Unity</span>
+            <span className="bg-green-500/20 text-green-200 px-3 py-1 rounded-full text-sm">Rights Advocacy</span>
+            <span className="bg-purple-500/20 text-purple-200 px-3 py-1 rounded-full text-sm">Youth Empowerment</span>
+            <span className="bg-blue-500/20 text-blue-200 px-3 py-1 rounded-full text-sm">Grassroots Movement</span>
           </div>
         </div>
       </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar Navigation */}

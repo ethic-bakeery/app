@@ -2,22 +2,67 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Navigation Bar - Responsive */}
-      <nav className="bg-white shadow-sm">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      {/* Navigation Bar - Enhanced */}
+      <nav className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex">
+          <div className="flex justify-between h-20">
+            <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
-                <span className="text-xl font-bold text-gray-800">NNGA</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                  NURA
+                </span>
+                <span className="ml-2 text-xs text-gray-500 hidden sm:block">
+                  Nigerian Unity and Rights Advocacy
+                </span>
               </div>
             </div>
             
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-8">
+              <Link
+                href="/"
+                className="text-green-600 font-semibold border-b-2 border-green-600 pb-1 transition-colors duration-200"
+              >
+                Home
+              </Link>
+              <Link
+                href="/about"
+                className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200"
+              >
+                About Us
+              </Link>
+              <Link
+                href="/checklist"
+                className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200"
+              >
+                Checklist
+              </Link>
+              <Link
+                href="/structure"
+                className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200"
+              >
+                Structure
+              </Link>
+              <Link
+                href="/contact"
+                className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200"
+              >
+                Contact
+              </Link>
+              <Link
+                href="/register"
+                className="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors duration-200"
+              >
+                Join Us
+              </Link>
+            </div>
+
             {/* Mobile menu button */}
-            <div className="sm:hidden flex items-center">
+            <div className="lg:hidden flex items-center">
               <button
                 type="button"
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-green-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
@@ -28,224 +73,318 @@ export default function Home() {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth="2"
+                    strokeWidth={2}
                     d="M4 6h16M4 12h16M4 18h16"
                   />
                 </svg>
               </button>
             </div>
-            
-            {/* Desktop Navigation */}
-            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <Link
-                href="/"
-                className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-              >
-                About Us
-              </Link>
-              <Link
-                href="/policy"
-                className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-              >
-                Policy
-              </Link>
-              <Link
-                href="/contact"
-                className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-              >
-                Contact Us
-              </Link>
-              <Link
-                href="/structure"
-                className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-              >
-                Structure
-              </Link>
-            </div>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        <div className="sm:hidden" id="mobile-menu">
-          <div className="pt-2 pb-3 space-y-1">
+        <div className="lg:hidden hidden" id="mobile-menu">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
             <Link
               href="/"
-              className="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+              className="bg-green-50 text-green-600 block px-3 py-2 rounded-md text-base font-medium"
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
             >
               About Us
             </Link>
             <Link
-              href="/policy"
-              className="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+              href="/constitution"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
             >
-              Policy
-            </Link>
-            <Link
-              href="/contact"
-              className="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-            >
-              Contact Us
+              Constitution
             </Link>
             <Link
               href="/structure"
-              className="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
             >
               Structure
+            </Link>
+            <Link
+              href="/contact"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+            >
+              Contact
+            </Link>
+            <Link
+              href="/join"
+              className="bg-green-600 text-white block px-3 py-2 rounded-md text-base font-medium text-center"
+            >
+              Join Us
             </Link>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl sm:tracking-tight lg:text-5xl">
-            Naija NextGen Alliance
-          </h1>
-          <p className="mt-4 max-w-xl mx-auto text-lg text-gray-500 sm:mt-6">
-            Join our community and make a difference in people&apos;s lives.
+      {/* Hero Section - Enhanced */}
+      <section className="relative bg-gradient-to-r from-green-700 via-blue-700 to-purple-800 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+          <div className="text-center">
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+              Nigerian Unity and Rights Advocacy
+            </h1>
+            <p className="mt-6 text-xl text-green-100 max-w-3xl mx-auto">
+              <em>United for Justice, Driven by Purpose</em>
+            </p>
+            <p className="mt-4 text-lg text-blue-100 font-semibold">
+              One Nation. One Voice. One Future.
+            </p>
+            <div className="mt-10 flex justify-center gap-4">
+              <Link
+                href="/join"
+                className="bg-white text-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 shadow-lg"
+              >
+                Become a Member
+              </Link>
+              <Link
+                href="/about"
+                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-700 transition-colors duration-200"
+              >
+                Learn More
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision & Mission Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Vision</h2>
+              <blockquote className="text-xl text-gray-700 italic border-l-4 border-green-500 pl-6 py-2">
+                "To build a united and just Nigeria where every citizen is empowered, heard, and protected under the rule of law."
+              </blockquote>
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
+              <p className="text-lg text-gray-700">
+                To promote national unity, protect human rights, and mobilize Nigerian youth for peaceful, informed, and effective civic participation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Key Objectives Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900">Our Key Objectives</h2>
+            <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+              Driving meaningful change through focused advocacy and community engagement
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "National Cohesion",
+                description: "Eliminating tribalism, ethnic bias, and religious divisions through inclusive advocacy and civic education",
+                icon: "🤝"
+              },
+              {
+                title: "Civic Education",
+                description: "Enhancing understanding of rights, responsibilities, and roles in a democratic society",
+                icon: "📚"
+              },
+              {
+                title: "Political Awareness",
+                description: "Combating voter apathy, electoral malpractice, and political misinformation",
+                icon: "🗳️"
+              },
+              {
+                title: "Accountability",
+                description: "Promoting transparency in public office and lawful civic engagement",
+                icon: "⚖️"
+              },
+              {
+                title: "Quality of Life",
+                description: "Supporting access to education, healthcare, housing, and social welfare services",
+                icon: "🏠"
+              },
+              {
+                title: "Youth Engagement",
+                description: "Providing platforms and resources for leadership and social change",
+                icon: "🌟"
+              }
+            ].map((objective, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 border border-gray-100">
+                <div className="text-3xl mb-4">{objective.icon}</div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{objective.title}</h3>
+                <p className="text-gray-600">{objective.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="py-16 bg-gradient-to-r from-green-600 to-blue-600 text-white">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold mb-6">Dear Fellow Nigerian,</h2>
+          <div className="prose prose-lg prose-invert max-w-none">
+            <p className="text-xl mb-6">
+              Our nation is at a crossroads. Every day, we face corruption, insecurity, poor leadership, and economic hardship. But in the midst of these challenges lies an opportunity—the opportunity to create lasting, people-driven change.
+            </p>
+            <div className="bg-white bg-opacity-10 p-6 rounded-lg my-6">
+              <p className="text-2xl font-semibold italic">
+                This is not about politics.<br />
+                It's not about tribe.<br />
+                It's not about religion.<br />
+                <span className="text-yellow-300">It's about our future.</span>
+              </p>
+            </div>
+            <p className="text-xl">
+              We are building a nationwide, grassroots community of courageous, visionary Nigerians who are ready to reform this country from the ground up—starting with awareness, unity, and collective action.
+            </p>
+          </div>
+          <div className="mt-8">
+            <Link
+              href="/join"
+              className="bg-white text-green-700 px-10 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors duration-200 inline-block"
+            >
+              Join the Movement Today
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Governance Structure Preview */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900">Our National Structure</h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Organized for maximum impact across all levels of governance
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center p-6">
+              <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🇳🇬</span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">National Level</h3>
+              <p className="text-gray-600 mb-4">25-member Executive Council providing strategic leadership</p>
+              <ul className="text-sm text-gray-500 space-y-1">
+                <li>High-level decision making</li>
+                <li>National policy setting</li>
+                <li>International representation</li>
+              </ul>
+            </div>
+            
+            <div className="text-center p-6">
+              <div className="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🏛️</span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">State Level</h3>
+              <p className="text-gray-600 mb-4">14-member teams across all 36 states</p>
+              <ul className="text-sm text-gray-500 space-y-1">
+                <li>State media engagement</li>
+                <li>Local event coordination</li>
+                <li>Community feedback relay</li>
+              </ul>
+            </div>
+            
+            <div className="text-center p-6">
+              <div className="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🏘️</span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Local Government</h3>
+              <p className="text-gray-600 mb-4">9-member teams in 774 LGAs</p>
+              <ul className="text-sm text-gray-500 space-y-1">
+                <li>Grassroots mobilization</li>
+                <li>Community awareness</li>
+                <li>Local leader engagement</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="text-center mt-8">
+            <Link
+              href="/structure"
+              className="text-green-600 font-semibold hover:text-green-700 transition-colors duration-200"
+            >
+              View Full Organizational Structure →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Membership CTA */}
+      <section className="py-16 bg-gray-900 text-white">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold mb-4">Ready to Make a Difference?</h2>
+          <p className="text-xl text-gray-300 mb-8">
+            Membership is open to all Nigerians aged 16 and above who support our objectives
           </p>
-        </div>
-
-        {/* Call to Action Section */}
-        <div className="mt-8 bg-white p-6 rounded-lg shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Dear Fellow Nigerian,</h2>
-          <div className="prose prose-indigo text-gray-600">
-            <p>
-              Our nation is at a crossroads. Every day, we face corruption, insecurity, poor leadership, and economic hardship. But in the midst of these challenges lies an opportunity the opportunity to create lasting, people-driven change.
-            </p>
-            <p className="font-semibold mt-4">
-              This is not about politics.<br />
-              It&apos;s not about tribe.<br />
-              It&apos;s not about religion.<br />
-              It&apos;s about our future.
-            </p>
-            <p className="mt-4">
-              We are building a nationwide, grassroots community of courageous, visionary Nigerians who are ready to reform this country from the ground up starting with awareness, unity, and collective action.
-            </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/register"
+              className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200"
+            >
+              Register Now
+            </Link>
+           
           </div>
         </div>
+      </section>
 
-        {/* Mission Statement Section */}
-        <div className="mt-8 bg-indigo-50 p-6 rounded-lg">
-          <h2 className="text-xl font-bold text-indigo-800 mb-4">🎯 Mission Statement</h2>
-          <ul className="space-y-3 text-gray-700">
-            <li className="flex items-start">
-              <span className="flex-shrink-0 text-indigo-600 mr-2">•</span>
-              <span><strong>National Unity:</strong> Bringing Nigerians together beyond tribal, religious, and political differences</span>
-            </li>
-            <li className="flex items-start">
-              <span className="flex-shrink-0 text-indigo-600 mr-2">•</span>
-              <span><strong>Political Awareness:</strong> Educating citizens about their rights, elections, and governance</span>
-            </li>
-            <li className="flex items-start">
-              <span className="flex-shrink-0 text-indigo-600 mr-2">•</span>
-              <span><strong>Accountability & Transparency:</strong> Demanding responsibility from leaders</span>
-            </li>
-            <li className="flex items-start">
-              <span className="flex-shrink-0 text-indigo-600 mr-2">•</span>
-              <span><strong>Economic & Social Reform:</strong> Advocating for policies that improve living conditions</span>
-            </li>
-            <li className="flex items-start">
-              <span className="flex-shrink-0 text-indigo-600 mr-2">•</span>
-              <span><strong>Youth & Grassroots Engagement:</strong> Empowering young Nigerians and local communities</span>
-            </li>
-            <li className="flex items-start">
-              <span className="flex-shrink-0 text-indigo-600 mr-2">•</span>
-              <span><strong>Peaceful Advocacy:</strong> Promoting nonviolent methods of protest and activism</span>
-            </li>
-            <li className="flex items-start">
-              <span className="flex-shrink-0 text-indigo-600 mr-2">•</span>
-              <span><strong>Community Mobilization:</strong> Establishing teams in all 36 states and 774 local governments</span>
-            </li>
-          </ul>
-        </div>
-
-        {/* Get Involved Section */}
-        <div className="mt-8 bg-white p-6 rounded-lg shadow-sm">
-          <h2 className="text-xl font-bold text-gray-800 mb-4">📌 How You Can Get Involved</h2>
-          <ul className="space-y-3 text-gray-600 mb-6">
-            <li>Join our local/state team in your area</li>
-            <li>Participate in discussions and planning meetings</li>
-            <li>Help raise awareness through social media and community events</li>
-            <li>Engage with local leaders, youth groups, and activists</li>
-          </ul>
-
-          <div className="bg-blue-50 p-4 rounded-md">
-            <p className="text-blue-800 mb-3">
-              If you&apos;re interested, please read our <Link href="/policy" className="font-semibold underline">Policy</Link>, <Link href="/terms" className="font-semibold underline">Terms and Conditions</Link>, and <Link href="/criteria" className="font-semibold underline">Acceptance Criteria</Link>.
-            </p>
-            <p className="text-blue-800">
-              If you agree to the terms and meet the criteria, you can <Link href="/register" className="font-semibold underline">register here</Link> to get started.
-            </p>
-          </div>
-        </div>
-
-        {/* Features Section */}
-        <div className="mt-12 px-2">
-          <h2 className="text-xl font-bold text-gray-900 text-center mb-6 sm:text-2xl">
-            Why Choose NNGA?
-          </h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Feature 1 */}
-            <div className="bg-white p-5 rounded-lg shadow-sm">
-              <div className="text-indigo-600 mb-3">
-                <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <h3 className="text-md font-medium text-gray-900 mb-1 sm:text-lg">Make an Impact</h3>
-              <p className="text-sm text-gray-500 sm:text-base">
-                Connect with meaningful causes and create real change in your community.
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold mb-4">NURA</h3>
+              <p className="text-gray-400 text-sm">
+                Nigerian Unity and Rights Advocacy - Building a united and just Nigeria through civic engagement and youth mobilization.
               </p>
             </div>
-
-            {/* Feature 2 */}
-            <div className="bg-white p-5 rounded-lg shadow-sm">
-              <div className="text-indigo-600 mb-3">
-                <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" />
-                  <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
-                </svg>
-              </div>
-              <h3 className="text-md font-medium text-gray-900 mb-1 sm:text-lg">Build Skills</h3>
-              <p className="text-sm text-gray-500 sm:text-base">
-                Gain valuable experience and develop new skills through volunteering.
-              </p>
+            <div>
+              <h4 className="text-md font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+                <li><Link href="/policy" className="hover:text-white transition-colors">Policy</Link></li>
+                <li><Link href="/structure" className="hover:text-white transition-colors">Structure</Link></li>
+                <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              </ul>
             </div>
-
-            {/* Feature 3 */}
-            <div className="bg-white p-5 rounded-lg shadow-sm">
-              <div className="text-indigo-600 mb-3">
-                <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd" />
-                </svg>
+            <div>
+              <h4 className="text-md font-semibold mb-4">Membership</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><Link href="/register" className="hover:text-white transition-colors">Join NURA</Link></li>
+                <li><Link href="/criteria" className="hover:text-white transition-colors">Membership Criteria</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-md font-semibold mb-4">Contact Info</h4>
+              <div className="text-sm text-gray-400 space-y-2">
+                <p>Secretariat located with incumbent National Director</p>
+                <p>Liaison office in Abuja, FCT</p>
               </div>
-              <h3 className="text-md font-medium text-gray-900 mb-1 sm:text-lg">Join a Community</h3>
-              <p className="text-sm text-gray-500 sm:text-base">
-                Meet like-minded people and be part of a supportive network.
-              </p>
             </div>
           </div>
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+            <p>&copy; {new Date().getFullYear()} Nigerian Unity and Rights Advocacy (NURA). All rights reserved.</p>
+          </div>
         </div>
-      </main>
+      </footer>
     </div>
   );
 }

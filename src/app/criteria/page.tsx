@@ -84,7 +84,7 @@ export default function AcceptanceCriteriaPage() {
             <div className="hidden lg:flex items-center space-x-8">
               <Link href="/" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Home</Link>
               <Link href="/about" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">About Us</Link>
-              <Link href="/constitution" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Constitution</Link>
+              <Link href="/checklist" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Checklist</Link>
               <Link href="/structure" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Structure</Link>
               <Link href="/policy" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Policies</Link>
               <Link href="/criteria" className="text-green-600 font-semibold border-b-2 border-green-600 pb-1">Criteria</Link>

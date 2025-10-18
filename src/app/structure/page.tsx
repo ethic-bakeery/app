@@ -103,7 +103,7 @@ export default function StructurePage() {
             <div className="hidden lg:flex items-center space-x-8">
               <Link href="/" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Home</Link>
               <Link href="/about" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">About Us</Link>
-              <Link href="/constitution" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Constitution</Link>
+              <Link href="/checklist" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Checklist</Link>
               <Link href="/structure" className="text-green-600 font-semibold border-b-2 border-green-600 pb-1">Structure</Link>
               <Link href="/contact" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Contact</Link>
               <Link href="/join" className="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors duration-200">Join Us</Link>
@@ -364,10 +364,10 @@ export default function StructurePage() {
                 Join NURA Today
               </Link>
               <Link
-                href="/constitution"
+                href="/checklist"
                 className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors duration-200"
               >
-                View Full Constitution
+                Checklist
               </Link>
             </div>
           </div>
