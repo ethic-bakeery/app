@@ -268,20 +268,20 @@ const ContactForm = () => {
     </select>
   </div>
 
-  <div>
-    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-      Message *
-    </label>
-    <textarea
-      id="message"
-      rows={6}
-      value={message}
-      onChange={(e) => setMessage(e.target.value)}
-      required
-      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 resize-none text-gray-900 bg-white placeholder-gray-500"
-      placeholder="Please provide details about your inquiry, question, or how we can assist you..."
-    />
-  </div>
+ <div>
+  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+    Message *
+  </label>
+  <textarea
+    id="message"
+    rows={6}
+    value={message}
+    onChange={(e) => setMessage(e.target.value)}
+    required
+    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 resize-none text-gray-900 bg-white placeholder-gray-500"
+    placeholder="Please provide details about your inquiry, question, or how we can assist you..."
+  />
+</div>
 
   <div>
     <button
