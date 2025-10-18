@@ -256,8 +256,7 @@ export default function ContactForm() {
                 </div>
               </div>
             )}
-            
-          <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
   {/* Step 1: Personal Information */}
   {currentStep === 1 && (
     <div className="space-y-6">
@@ -274,7 +273,7 @@ export default function ContactForm() {
               value={formData.fullName}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white placeholder-gray-500"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
               placeholder="Enter your full name"
             />
             <svg className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -295,7 +294,7 @@ export default function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white placeholder-gray-500"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
               placeholder="your.email@example.com"
             />
             <svg className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -316,7 +315,7 @@ export default function ContactForm() {
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white placeholder-gray-500"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
               placeholder="+234 800 000 0000"
             />
             <svg className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -354,7 +353,7 @@ export default function ContactForm() {
             value={formData.state}
             onChange={handleChange}
             required
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white"
           >
             <option value="" className="text-gray-500">Select your state</option>
             {nigerianStates.map(state => (
@@ -374,7 +373,7 @@ export default function ContactForm() {
             value={formData.localGovernment}
             onChange={handleChange}
             required
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white placeholder-gray-500"
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
             placeholder="Enter your LGA"
           />
         </div>
@@ -389,7 +388,7 @@ export default function ContactForm() {
           name="rolePreference"
           value={formData.rolePreference}
           onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white"
         >
           <option value="" className="text-gray-500">Select preferred role</option>
           {rolePreferences.map(role => (
@@ -414,7 +413,7 @@ export default function ContactForm() {
           value={formData.skills}
           onChange={handleChange}
           required
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white placeholder-gray-500"
+          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
           placeholder="List your relevant skills, expertise, or areas of interest (e.g., Community organizing, Public speaking, Legal advisory, Social media management, Event planning...)"
         />
       </div>
@@ -430,7 +429,7 @@ export default function ContactForm() {
           value={formData.experience}
           onChange={handleChange}
           required
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white placeholder-gray-500"
+          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
           placeholder="Describe your previous volunteer experience, work experience, or any relevant activities that demonstrate your commitment to community service and positive change..."
         />
       </div>
@@ -445,7 +444,7 @@ export default function ContactForm() {
           rows={2}
           value={formData.interests}
           onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white placeholder-gray-500"
+          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
           placeholder="Specific areas you're passionate about (e.g., Youth empowerment, Education reform, Human rights advocacy, Political awareness...)"
         />
       </div>
