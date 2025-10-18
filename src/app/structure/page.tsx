@@ -284,66 +284,72 @@ export default function StructurePage() {
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div className="bg-white bg-opacity-10 rounded-xl p-6 text-center backdrop-blur-sm">
-                <div className="text-3xl font-bold mb-2">774</div>
-                <div className="text-blue-100 text-sm">Local Government Areas</div>
+                <div className="text-3xl font-bold mb-2 text-red-500">774</div>
+                <div className="text-sm text-green-600">Local Government Areas</div>
               </div>
               <div className="bg-white bg-opacity-10 rounded-xl p-6 text-center backdrop-blur-sm">
-                <div className="text-3xl font-bold mb-2">37</div>
-                <div className="text-blue-100 text-sm">States & FCT</div>
+                <div className="text-3xl font-bold mb-2 text-red-500">37</div>
+                <div className="text-sm text-green-600">States & FCT</div>
               </div>
               <div className="bg-white bg-opacity-10 rounded-xl p-6 text-center backdrop-blur-sm">
-                <div className="text-3xl font-bold mb-2">3</div>
-                <div className="text-blue-100 text-sm">Tier Structure</div>
+                <div className="text-3xl font-bold mb-2 text-red-500">3</div>
+                <div className="text-sm text-green-600">Tier Structure</div>
               </div>
               <div className="bg-white bg-opacity-20 rounded-xl p-6 text-center backdrop-blur-sm">
-                <div className="text-3xl font-bold mb-2">7,509</div>
-                <div className="text-blue-100 text-sm">Total Members</div>
+                <div className="text-3xl font-bold mb-2 text-red-500">7,509</div>
+                <div className="text-sm text-green-600">Total Members</div>
               </div>
+
             </div>
 
             <div className="mt-8 bg-white bg-opacity-10 rounded-xl p-6 backdrop-blur-sm">
               <div className="overflow-x-auto">
-                <table className="w-full text-white">
-                  <thead>
-                    <tr className="border-b border-white border-opacity-20">
-                      <th className="text-left pb-4 font-semibold">Level</th>
-                      <th className="text-left pb-4 font-semibold">Units</th>
-                      <th className="text-left pb-4 font-semibold">Team Size</th>
-                      <th className="text-left pb-4 font-semibold">Total Members</th>
-                      <th className="text-left pb-4 font-semibold">Coverage</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-white divide-opacity-20">
-                    <tr>
-                      <td className="py-4 font-medium">Local Government</td>
-                      <td className="py-4">774 LGAs</td>
-                      <td className="py-4">9 per LGA</td>
-                      <td className="py-4">6,966</td>
-                      <td className="py-4">Grassroots</td>
-                    </tr>
-                    <tr>
-                      <td className="py-4 font-medium">State Level</td>
-                      <td className="py-4">37 States</td>
-                      <td className="py-4">14 per state</td>
-                      <td className="py-4">518</td>
-                      <td className="py-4">Regional</td>
-                    </tr>
-                    <tr>
-                      <td className="py-4 font-medium">National Level</td>
-                      <td className="py-4">1 Council</td>
-                      <td className="py-4">25 members</td>
-                      <td className="py-4">25</td>
-                      <td className="py-4">National</td>
-                    </tr>
-                    <tr className="border-t border-white border-opacity-30">
-                      <td className="py-4 font-bold">Total</td>
-                      <td className="py-4">-</td>
-                      <td className="py-4">-</td>
-                      <td className="py-4 font-bold text-lg">7,509</td>
-                      <td className="py-4">Nationwide</td>
-                    </tr>
-                  </tbody>
-                </table>
+                
+              <table className="w-full text-gray-900">
+  <thead>
+    <tr className="border-b border-gray-300">
+      <th className="text-left pb-4 font-semibold">Level</th>
+      <th className="text-left pb-4 font-semibold">Units</th>
+      <th className="text-left pb-4 font-semibold">Team Size</th>
+      <th className="text-left pb-4 font-semibold">Total Members</th>
+      <th className="text-left pb-4 font-semibold">Coverage</th>
+    </tr>
+  </thead>
+  <tbody className="divide-y divide-gray-200">
+    <tr>
+      <td className="py-4 font-medium text-blue-700">Local Government</td>
+      <td className="py-4 text-gray-800">774 LGAs</td>
+      <td className="py-4 text-green-700">9 per LGA</td>
+      <td className="py-4 text-red-700">6,966</td>
+      <td className="py-4 text-indigo-700">Grassroots</td>
+    </tr>
+
+    <tr>
+      <td className="py-4 font-medium text-blue-700">State Level</td>
+      <td className="py-4 text-gray-800">37 States</td>
+      <td className="py-4 text-green-700">14 per state</td>
+      <td className="py-4 text-red-700">518</td>
+      <td className="py-4 text-indigo-700">Regional</td>
+    </tr>
+
+    <tr>
+      <td className="py-4 font-medium text-blue-700">National Level</td>
+      <td className="py-4 text-gray-800">1 Council</td>
+      <td className="py-4 text-green-700">25 members</td>
+      <td className="py-4 text-red-700">25</td>
+      <td className="py-4 text-indigo-700">National</td>
+    </tr>
+
+    <tr className="border-t border-gray-300">
+      <td className="py-4 font-bold text-blue-800">Total</td>
+      <td className="py-4 text-gray-600">-</td>
+      <td className="py-4 text-gray-600">-</td>
+      <td className="py-4 font-bold text-lg text-green-800">7,509</td>
+      <td className="py-4 text-indigo-800">Nationwide</td>
+    </tr>
+  </tbody>
+</table>
+
               </div>
             </div>
           </div>
@@ -358,7 +364,7 @@ export default function StructurePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/join"
+                href="/register"
                 className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200"
               >
                 Join NURA Today

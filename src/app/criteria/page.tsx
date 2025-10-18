@@ -111,10 +111,10 @@ export default function AcceptanceCriteriaPage() {
             Requirements and standards for joining Nigerian Unity and Rights Advocacy
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-2">
-            <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Age 16+</span>
-            <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Nigerian Citizen</span>
-            <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Good Character</span>
-            <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Commitment Required</span>
+            <span className="bg-blue-500/20 text-blue-200 px-3 py-1 rounded-full text-sm">Age 16+</span>
+            <span className="bg-green-500/20 text-green-200 px-3 py-1 rounded-full text-sm">Nigerian Citizen</span>
+            <span className="bg-purple-500/20 text-purple-200 px-3 py-1 rounded-full text-sm">Good Character</span>
+            <span className="bg-blue-500/20 text-blue-200 px-3 py-1 rounded-full text-sm">Commitment Required</span>
           </div>
         </div>
       </div>

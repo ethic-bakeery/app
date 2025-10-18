@@ -1,6 +1,19 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Navigation Bar - Enhanced */}
@@ -62,66 +75,90 @@ export default function Home() {
             <div className="lg:hidden flex items-center">
               <button
                 type="button"
+                onClick={toggleMenu}
                 className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-green-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
                 aria-controls="mobile-menu"
-                aria-expanded="false"
+                aria-expanded={isMenuOpen}
               >
                 <span className="sr-only">Open main menu</span>
-                <svg
-                  className="block h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
+                {isMenuOpen ? (
+                  <svg
+                    className="block h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    className="block h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                )}
               </button>
             </div>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        <div className="lg:hidden hidden" id="mobile-menu">
+        <div className={`lg:hidden ${isMenuOpen ? 'block' : 'hidden'}`} id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
             <Link
               href="/"
               className="bg-green-50 text-green-600 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
             >
               Home
             </Link>
             <Link
               href="/about"
               className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
             >
               About Us
             </Link>
             <Link
-              href="/constitution"
+              href="/checklist"
               className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
             >
-              Constitution
+              Checklist
             </Link>
             <Link
               href="/structure"
               className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
             >
               Structure
             </Link>
             <Link
               href="/contact"
               className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
             >
               Contact
             </Link>
             <Link
-              href="/join"
+              href="/register"
               className="bg-green-600 text-white block px-3 py-2 rounded-md text-base font-medium text-center"
+              onClick={closeMenu}
             >
               Join Us
             </Link>
@@ -145,7 +182,7 @@ export default function Home() {
             </p>
             <div className="mt-10 flex justify-center gap-4">
               <Link
-                href="/join"
+                href="/register"
                 className="bg-white text-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 shadow-lg"
               >
                 Become a Member
@@ -240,23 +277,24 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-6">Dear Fellow Nigerian,</h2>
           <div className="prose prose-lg prose-invert max-w-none">
             <p className="text-xl mb-6">
-              Our nation is at a crossroads. Every day, we face corruption, insecurity, poor leadership, and economic hardship. But in the midst of these challenges lies an opportunity—the opportunity to create lasting, people-driven change.
+              Our nation is at a crossroads. Every day, we face corruption, insecurity, poor leadership, and economic hardship. But in the midst of these challenges lies an opportunity the opportunity to create lasting, people-driven change.
             </p>
             <div className="bg-white bg-opacity-10 p-6 rounded-lg my-6">
               <p className="text-2xl font-semibold italic">
-                This is not about politics.<br />
-                It's not about tribe.<br />
-                It's not about religion.<br />
+                <span className="text-red-400">This is not about politics.</span><br />
+                <span className="text-blue-400">It's not about tribe.</span><br />
+                <span className="text-green-400">It's not about religion.</span><br />
                 <span className="text-yellow-300">It's about our future.</span>
               </p>
             </div>
+
             <p className="text-xl">
-              We are building a nationwide, grassroots community of courageous, visionary Nigerians who are ready to reform this country from the ground up—starting with awareness, unity, and collective action.
+              We are building a nationwide, grassroots community of courageous, visionary Nigerians who are ready to reform this country from the ground up starting with awareness, unity, and collective action.
             </p>
           </div>
           <div className="mt-8">
             <Link
-              href="/join"
+              href="/register"
               className="bg-white text-green-700 px-10 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors duration-200 inline-block"
             >
               Join the Movement Today
@@ -341,7 +379,6 @@ export default function Home() {
             >
               Register Now
             </Link>
-           
           </div>
         </div>
       </section>
