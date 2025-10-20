@@ -5,6 +5,15 @@ import Link from "next/link";
 
 export default function StructurePage() {
   const [activeTab, setActiveTab] = useState<"local" | "state" | "national">("local");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   const structureData = {
     local: {
@@ -100,6 +109,7 @@ export default function StructurePage() {
               </div>
             </div>
             
+            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
               <Link href="/" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Home</Link>
               <Link href="/about" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">About Us</Link>
@@ -109,14 +119,75 @@ export default function StructurePage() {
               <Link href="/join" className="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors duration-200">Join Us</Link>
             </div>
 
+            {/* Mobile menu button */}
             <div className="lg:hidden flex items-center">
-              <button className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-green-600 hover:bg-gray-100">
+              <button
+                type="button"
+                onClick={toggleMenu}
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-green-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
+                aria-controls="mobile-menu"
+                aria-expanded={isMenuOpen}
+              >
                 <span className="sr-only">Open main menu</span>
-                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+                {isMenuOpen ? (
+                  <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
               </button>
             </div>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className={`lg:hidden ${isMenuOpen ? 'block' : 'hidden'}`} id="mobile-menu">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
+            <Link
+              href="/"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
+            >
+              About Us
+            </Link>
+            <Link
+              href="/checklist"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
+            >
+              Checklist
+            </Link>
+            <Link
+              href="/structure"
+              className="bg-green-50 text-green-600 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
+            >
+              Structure
+            </Link>
+            <Link
+              href="/contact"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
+            >
+              Contact
+            </Link>
+            <Link
+              href="/join"
+              className="bg-green-600 text-white block px-3 py-2 rounded-md text-base font-medium text-center"
+              onClick={closeMenu}
+            >
+              Join Us
+            </Link>
           </div>
         </div>
       </nav>
@@ -129,11 +200,10 @@ export default function StructurePage() {
             Our efficient three-tier structure designed for nationwide impact and grassroots engagement
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-2">
-  <span className="bg-blue-500/20 text-blue-200 px-3 py-1 rounded-full text-sm">7,509 Total Members</span>
-  <span className="bg-green-500/20 text-green-200 px-3 py-1 rounded-full text-sm">774 Local Governments</span>
-  <span className="bg-purple-500/20 text-purple-200 px-3 py-1 rounded-full text-sm">37 States Coverage</span>
-</div>
-
+            <span className="bg-blue-500/20 text-blue-200 px-3 py-1 rounded-full text-sm">7,509 Total Members</span>
+            <span className="bg-green-500/20 text-green-200 px-3 py-1 rounded-full text-sm">774 Local Governments</span>
+            <span className="bg-purple-500/20 text-purple-200 px-3 py-1 rounded-full text-sm">37 States Coverage</span>
+          </div>
         </div>
       </div>
 
@@ -299,57 +369,54 @@ export default function StructurePage() {
                 <div className="text-3xl font-bold mb-2 text-red-500">7,509</div>
                 <div className="text-sm text-green-600">Total Members</div>
               </div>
-
             </div>
 
             <div className="mt-8 bg-white bg-opacity-10 rounded-xl p-6 backdrop-blur-sm">
               <div className="overflow-x-auto">
-                
-              <table className="w-full text-gray-900">
-  <thead>
-    <tr className="border-b border-gray-300">
-      <th className="text-left pb-4 font-semibold">Level</th>
-      <th className="text-left pb-4 font-semibold">Units</th>
-      <th className="text-left pb-4 font-semibold">Team Size</th>
-      <th className="text-left pb-4 font-semibold">Total Members</th>
-      <th className="text-left pb-4 font-semibold">Coverage</th>
-    </tr>
-  </thead>
-  <tbody className="divide-y divide-gray-200">
-    <tr>
-      <td className="py-4 font-medium text-blue-700">Local Government</td>
-      <td className="py-4 text-gray-800">774 LGAs</td>
-      <td className="py-4 text-green-700">9 per LGA</td>
-      <td className="py-4 text-red-700">6,966</td>
-      <td className="py-4 text-indigo-700">Grassroots</td>
-    </tr>
+                <table className="w-full text-gray-900">
+                  <thead>
+                    <tr className="border-b border-gray-300">
+                      <th className="text-left pb-4 font-semibold">Level</th>
+                      <th className="text-left pb-4 font-semibold">Units</th>
+                      <th className="text-left pb-4 font-semibold">Team Size</th>
+                      <th className="text-left pb-4 font-semibold">Total Members</th>
+                      <th className="text-left pb-4 font-semibold">Coverage</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    <tr>
+                      <td className="py-4 font-medium text-blue-700">Local Government</td>
+                      <td className="py-4 text-gray-800">774</td>
+                      <td className="py-4 text-green-700">9 per LGA</td>
+                      <td className="py-4 text-red-700">6,966</td>
+                      <td className="py-4 text-indigo-700">Grassroots</td>
+                    </tr>
 
-    <tr>
-      <td className="py-4 font-medium text-blue-700">State Level</td>
-      <td className="py-4 text-gray-800">37 States</td>
-      <td className="py-4 text-green-700">14 per state</td>
-      <td className="py-4 text-red-700">518</td>
-      <td className="py-4 text-indigo-700">Regional</td>
-    </tr>
+                    <tr>
+                      <td className="py-4 font-medium text-blue-700">State Level</td>
+                      <td className="py-4 text-gray-800">37</td>
+                      <td className="py-4 text-green-700">14 per state</td>
+                      <td className="py-4 text-red-700">518</td>
+                      <td className="py-4 text-indigo-700">Regional</td>
+                    </tr>
 
-    <tr>
-      <td className="py-4 font-medium text-blue-700">National Level</td>
-      <td className="py-4 text-gray-800">1 Council</td>
-      <td className="py-4 text-green-700">25 members</td>
-      <td className="py-4 text-red-700">25</td>
-      <td className="py-4 text-indigo-700">National</td>
-    </tr>
+                    <tr>
+                      <td className="py-4 font-medium text-blue-700">National Level</td>
+                      <td className="py-4 text-gray-800">1 Council</td>
+                      <td className="py-4 text-green-700">25 members</td>
+                      <td className="py-4 text-red-700">25</td>
+                      <td className="py-4 text-indigo-700">National</td>
+                    </tr>
 
-    <tr className="border-t border-gray-300">
-      <td className="py-4 font-bold text-blue-800">Total</td>
-      <td className="py-4 text-gray-600">-</td>
-      <td className="py-4 text-gray-600">-</td>
-      <td className="py-4 font-bold text-lg text-green-800">7,509</td>
-      <td className="py-4 text-indigo-800">Nationwide</td>
-    </tr>
-  </tbody>
-</table>
-
+                    <tr className="border-t border-gray-300">
+                      <td className="py-4 font-bold text-blue-800">Total</td>
+                      <td className="py-4 text-gray-600">-</td>
+                      <td className="py-4 text-gray-600">-</td>
+                      <td className="py-4 font-bold text-lg text-green-800">7,509</td>
+                      <td className="py-4 text-indigo-800">Nationwide</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

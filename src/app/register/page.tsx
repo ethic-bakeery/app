@@ -58,8 +58,17 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState<{ text: string; type: "success" | "error" } | null>(null);
   const [currentStep, setCurrentStep] = useState(1);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const registerUser = useMutation(api.register.registerUser);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -145,22 +154,77 @@ export default function ContactForm() {
               </div>
             </div>
             
+            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
               <Link href="/" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Home</Link>
               <Link href="/about" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">About Us</Link>
-              <Link href="/policy" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">policy</Link>
+              <Link href="/policy" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Policy</Link>
               <Link href="/structure" className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200">Structure</Link>
               <Link href="/contact" className="text-green-600 font-semibold border-b-2 border-green-600 pb-1">Join Us</Link>
             </div>
 
+            {/* Mobile menu button */}
             <div className="lg:hidden flex items-center">
-              <button className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-green-600 hover:bg-gray-100">
+              <button
+                type="button"
+                onClick={toggleMenu}
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-green-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
+                aria-controls="mobile-menu"
+                aria-expanded={isMenuOpen}
+              >
                 <span className="sr-only">Open main menu</span>
-                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+                {isMenuOpen ? (
+                  <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
               </button>
             </div>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className={`lg:hidden ${isMenuOpen ? 'block' : 'hidden'}`} id="mobile-menu">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
+            <Link
+              href="/"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
+            >
+              About Us
+            </Link>
+            <Link
+              href="/policy"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
+            >
+              Policy
+            </Link>
+            <Link
+              href="/structure"
+              className="text-gray-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
+            >
+              Structure
+            </Link>
+            <Link
+              href="/contact"
+              className="bg-green-50 text-green-600 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={closeMenu}
+            >
+              Join Us
+            </Link>
           </div>
         </div>
       </nav>
@@ -173,11 +237,10 @@ export default function ContactForm() {
             Become part of the nationwide network driving positive change in Nigeria
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-2">
-  <span className="bg-blue-500/20 text-blue-200 px-3 py-1 rounded-full text-sm">Make a Difference</span>
-  <span className="bg-green-500/20 text-green-200 px-3 py-1 rounded-full text-sm">Build Your Community</span>
-  <span className="bg-orange-500/20 text-orange-200 px-3 py-1 rounded-full text-sm">Create Lasting Impact</span>
-</div>
-
+            <span className="bg-blue-500/20 text-blue-200 px-3 py-1 rounded-full text-sm">Make a Difference</span>
+            <span className="bg-green-500/20 text-green-200 px-3 py-1 rounded-full text-sm">Build Your Community</span>
+            <span className="bg-orange-500/20 text-orange-200 px-3 py-1 rounded-full text-sm">Create Lasting Impact</span>
+          </div>
         </div>
       </div>
 
@@ -256,7 +319,6 @@ export default function ContactForm() {
                 </div>
               </div>
             )}
-            
             <form onSubmit={handleSubmit}>
               {/* Step 1: Personal Information */}
               {currentStep === 1 && (
@@ -274,7 +336,7 @@ export default function ContactForm() {
                           value={formData.fullName}
                           onChange={handleChange}
                           required
-                          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
                           placeholder="Enter your full name"
                         />
                         <svg className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -295,7 +357,7 @@ export default function ContactForm() {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
                           placeholder="your.email@example.com"
                         />
                         <svg className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -316,7 +378,7 @@ export default function ContactForm() {
                           value={formData.phone}
                           onChange={handleChange}
                           required
-                          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                          className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
                           placeholder="+234 800 000 0000"
                         />
                         <svg className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -354,11 +416,11 @@ export default function ContactForm() {
                         value={formData.state}
                         onChange={handleChange}
                         required
-                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white"
                       >
-                        <option value="">Select your state</option>
+                        <option value="" className="text-gray-500">Select your state</option>
                         {nigerianStates.map(state => (
-                          <option key={state} value={state}>{state}</option>
+                          <option key={state} value={state} className="text-gray-900">{state}</option>
                         ))}
                       </select>
                     </div>
@@ -374,7 +436,7 @@ export default function ContactForm() {
                         value={formData.localGovernment}
                         onChange={handleChange}
                         required
-                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
                         placeholder="Enter your LGA"
                       />
                     </div>
@@ -389,11 +451,11 @@ export default function ContactForm() {
                       name="rolePreference"
                       value={formData.rolePreference}
                       onChange={handleChange}
-                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white"
                     >
-                      <option value="">Select preferred role</option>
+                      <option value="" className="text-gray-500">Select preferred role</option>
                       {rolePreferences.map(role => (
-                        <option key={role} value={role}>{role}</option>
+                        <option key={role} value={role} className="text-gray-900">{role}</option>
                       ))}
                     </select>
                   </div>
@@ -414,7 +476,7 @@ export default function ContactForm() {
                       value={formData.skills}
                       onChange={handleChange}
                       required
-                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
                       placeholder="List your relevant skills, expertise, or areas of interest (e.g., Community organizing, Public speaking, Legal advisory, Social media management, Event planning...)"
                     />
                   </div>
@@ -430,7 +492,7 @@ export default function ContactForm() {
                       value={formData.experience}
                       onChange={handleChange}
                       required
-                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
                       placeholder="Describe your previous volunteer experience, work experience, or any relevant activities that demonstrate your commitment to community service and positive change..."
                     />
                   </div>
@@ -445,7 +507,7 @@ export default function ContactForm() {
                       rows={2}
                       value={formData.interests}
                       onChange={handleChange}
-                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 !text-gray-900 bg-white placeholder-gray-500"
                       placeholder="Specific areas you're passionate about (e.g., Youth empowerment, Education reform, Human rights advocacy, Political awareness...)"
                     />
                   </div>
